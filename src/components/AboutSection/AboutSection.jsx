@@ -61,7 +61,7 @@ const AboutSection = () => {
     return (
         <>
             <div style={{ background: "#390020" }} className="mb-5">
-                <Container className="d-flex">
+                <Container className="mobile_direction">
                     <AboutReusable data={part1} />
                     <AboutReusable data={part2} />
                 </Container>

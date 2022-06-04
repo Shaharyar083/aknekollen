@@ -7,7 +7,7 @@ import hero750 from "../../../assets/images/hero750px.jpg";
 import hero2560 from "../../../assets/images/hero2560px.jpg";
 import hero1900px from "../../../assets/images/hero1900px.jpg";
 
-const HeroSection = () => {
+const HeroSection = ({ openModal }) => {
   return (
     <section className="aknekollen-hero-section">
       <picture>
@@ -33,7 +33,7 @@ const HeroSection = () => {
           Vi hjälper dig inom 30 minuter.
         </h1>
 
-        <button className="button1">
+        <button className="button1" onClick={openModal}>
           <div className="button_background">
             <p className="text">FÅ LÄKARBEDÖMNING HÄR</p>
           </div>

@@ -66,3 +66,19 @@
     }
   }
 }
+
+.mobile_direction {
+  display: fle;
+  flex-direction: row;
+}
+@media screen and (max-width: 995px) {
+  .mobile_direction {
+    display: fle;
+    flex-direction: column;
+  }
+  .main_container {
+    padding: 80px 0px !important;
+    margin: auto;
+    width: 80%;
+  }
+}
