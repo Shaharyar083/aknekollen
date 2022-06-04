@@ -1,0 +1,97 @@
+.navbar-component {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    // min-height: 62px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffc0c0;
+    border-bottom: 1px solid #000;
+    z-index: 1000;
+
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .left {
+            padding: 16px;
+
+            img {
+                width: 139.28px;
+            }
+        }
+
+        .right {
+
+            .hamburger {
+                position: relative;
+                width: 66px;
+                height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                overflow: hidden;
+                border-left: 1px solid #000;
+
+                span {
+                    position: absolute;
+                    width: 30px;
+                    height: 2px;
+                    background: #000;
+                    border-radius: 2px;
+                    transition: .4s;
+                }
+
+                span:first-child {
+                    transform: translateY(-10px);
+                    left: 17px;
+                }
+
+                span:nth-child(2) {
+                    transform: translateY(10px);
+                    left: 17px;
+                }
+            }
+
+            .close {
+                position: relative;
+                width: 66px;
+                height: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                overflow: hidden;
+                border-left: 1px solid #000;
+
+                span {
+                    position: absolute;
+                    height: 2px;
+                    background: #000;
+                    border-radius: 2px;
+                    transition: .4s;
+                }
+
+                span:first-child {
+                    width: 30px;
+                    transform: translateY(0) rotate(45deg);
+                    transition-delay: .1s;
+                    left: 17px;
+                }
+
+                span:nth-child(2) {
+                    width: 30px;
+                    transform: translateY(0) rotate(135deg);
+                    transition-delay: .2s;
+                    left: 17px;
+                }
+
+                span:nth-child(3) {
+                    transform: translateX(60px);
+                }
+            }
+        }
+    }
+}
