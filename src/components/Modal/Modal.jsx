@@ -24,7 +24,7 @@ const Modal = ({ close }) => {
   return (
     <div className="modal-get-doctor">
       <div className="main-wrapper">
-        <img src={cancel} alt="" className="cancel" />
+        <img src={cancel} alt="" className="cancel" onClick={close} />
 
         <div className="content">
           <div className="question">{state.question}</div>
