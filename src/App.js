@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/Aknekollen/HeroSection/HeroSection";
 import Modal from "./components/Modal/Modal";
 import OpeningHours from "./components/OpeningHours/OpeningHours";
+import AboutSection from "./components/AboutSection/AboutSection";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Navbar />
           <HeroSection openModal={() => setModal(true)} />
           <OpeningHours />
+          <AboutSection />
         </>
       )}
     </>
