@@ -5,7 +5,7 @@ import "./navbar.scss";
 import logo from "../../assets/images/logo.svg";
 
 const Navbar = () => {
-  const [menu, setMenu] = React.useState(false);
+  const [menu, setMenu] = React.useState(true);
 
   return (
     <div className="navbar-component">

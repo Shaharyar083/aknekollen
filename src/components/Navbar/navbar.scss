@@ -53,6 +53,10 @@
                     transform: translateY(10px);
                     left: 17px;
                 }
+
+                span:nth-child(3) {
+                    left: 17px;
+                }
             }
 
             .close {
