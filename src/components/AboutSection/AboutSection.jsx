@@ -46,7 +46,7 @@ const AboutReusable = (props) => {
                         <div className="image_box">
                             <img src={girl} alt="loading..." className="pic_main_style" />
                         </div>
-                        <div className="d-flex flex-column mt-auto mb-auto p-4">
+                        <div className="d-flex flex-column mt-auto mb-auto ">
                             <div className="tex_box_style">Matilda Lundblad</div>
                             <div className="tex_box_style">SPECIALIST IN GENERAL MEDICINE</div>
                         </div>
