@@ -8,6 +8,7 @@ import OpeningHours from "./components/OpeningHours/OpeningHours";
 import AboutSection from "./components/AboutSection/AboutSection";
 import Fakta from "../src/components/fakta"
 import "bootstrap/dist/css/bootstrap.min.css";
+import FactsSection from "./components/FactsSection/FactsSection";
 
 function App() {
   const [modal, setModal] = react.useState(false);
@@ -21,6 +22,7 @@ function App() {
           <HeroSection openModal={() => setModal(true)} />
           <OpeningHours />
           <AboutSection />
+          <FactsSection />
           <Fakta />
         </>
       )}

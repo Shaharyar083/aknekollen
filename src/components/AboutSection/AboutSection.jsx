@@ -60,7 +60,7 @@ const AboutReusable = (props) => {
 const AboutSection = () => {
     return (
         <>
-            <div style={{ background: "#390020" }} className="mb-5">
+            <div style={{ background: "#390020" }}>
                 <Container className="mobile_direction">
                     <AboutReusable data={part1} />
                     <AboutReusable data={part2} />

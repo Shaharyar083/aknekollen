@@ -22,7 +22,7 @@ const Modal = ({ close }) => {
           <Survey
             modalClose={close}
             setSurveyCompleted={setSurveyCompleted}
-            surveyResult={() => {}}
+            surveyResult={() => { }}
           />
         )}
       </div>
