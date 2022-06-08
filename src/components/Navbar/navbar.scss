@@ -142,3 +142,40 @@
 .heding_dstyle:hover {
   text-decoration: underline;
 }
+
+.nav_text_align {
+  padding-top: 48px;
+  padding-left: 48px;
+  display: block;
+}
+
+.nav_text_style {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5625em;
+  letter-spacing: 0;
+  font-family: SofiaPro, sans-serif;
+}
+
+.skip_text {
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .nav_text_align {
+    display: none;
+  }
+
+  .skip_text {
+    display: none;
+  }
+
+  .heding_dstyle {
+    font-family: GTAmericaMono, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.125em;
+    letter-spacing: 0;
+    white-space: pre-wrap;
+  }
+}
