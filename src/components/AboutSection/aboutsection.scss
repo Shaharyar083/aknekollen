@@ -63,12 +63,13 @@
       font-family: GTAmericaMono, sans-serif;
       font-size: 1rem;
       margin-top: 5px;
+      padding-left: 10px;
     }
   }
 }
 
 .mobile_direction {
-  display: fle;
+  display: flex;
   flex-direction: row;
 }
 @media screen and (max-width: 995px) {

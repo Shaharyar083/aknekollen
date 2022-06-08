@@ -1,0 +1,111 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 50%;
+  .facts_main_h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: black;
+    font-family: SofiaPro, sans-serif;
+  }
+  .facts_main_para {
+    font-size: 1.0625rem;
+    font-family: SofiaPro, sans-serif;
+    font-weight: 500;
+    line-height: 1.5625em;
+    letter-spacing: 0;
+    height: 100px;
+  }
+  .facts_last_link {
+    color: black;
+    font-family: GTAmericaMono, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0;
+    .facts_img_style {
+      margin-left: 40px;
+      height: 36px;
+      cursor: pointer;
+    }
+  }
+  .facts_last_link:hover {
+    text-decoration: underline;
+  }
+  .facts_carton_img_wrap {
+    display: flex;
+    justify-content: end;
+    .facts_carton_img {
+      width: 40%;
+    }
+  }
+}
+
+.mobile_direction {
+  display: flex;
+  flex-direction: row;
+}
+
+.main_container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  .facts_image_wrapper {
+    background-image: url("../../assets/images/ff.jpg");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+}
+
+.facts_bg_stiker {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+}
+.facts_bg_stiker_wrap {
+  height: 250px;
+  position: relative;
+  width: 250px;
+  cursor: pointer;
+}
+.facts_stker_img_3 {
+  width: 100%;
+}
+.facts_text_wrap_33 {
+  position: absolute;
+  top: 70px;
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+  left: 50px;
+  max-width: 150px;
+}
+.facts_arrow_rightff {
+  margin-top: 10px;
+  width: 20%;
+}
+
+@media screen and (max-width: 995px) {
+  .mobile_direction {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .main_container {
+    padding: 80px 0px !important;
+    margin: auto;
+    width: 80%;
+  }
+  .main_container2 {
+    padding: 80px 0px !important;
+    margin: auto;
+    width: 100%;
+    height: 100vh;
+  }
+}
