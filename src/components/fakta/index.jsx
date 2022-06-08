@@ -13,6 +13,7 @@ import five from "../../assets/images/5.svg";
 import six from "../../assets/images/6.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../Footer"
 
 const Fakta = () => {
     var settings = {
