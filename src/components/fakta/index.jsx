@@ -13,6 +13,7 @@ import five from "../../assets/images/5.svg"
 import six from "../../assets/images/6.svg"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../Footer"
 
 const Fakta = () => {
     var settings = {
@@ -133,7 +134,7 @@ const Fakta = () => {
 
 
                 </div>
-                <div className='slider_wrap'>
+                {/*<div className='slider_wrap'>
                     <Slider {...settings}>
                         <div>
                             <div className='box_info_2_slide'>
@@ -154,9 +155,10 @@ const Fakta = () => {
 
 
                     </Slider>
-                </div>
+                </div>*/}
 
             </div>
+            <Footer />
 
         </>
     )
