@@ -13,15 +13,19 @@ function OffCanvasExample({ menu, name, ...props }) {
         {...props}
         style={{
           marginRight: "17px",
-          marginTop: "64px",
           height: "100vh",
-          background: "#ffc0c0",
+          width: "100%",
         }}
       >
-        <Offcanvas.Body style={{ paddingTop: "0px" }}>
+        <Offcanvas.Body
+          style={{
+            paddingTop: "0px",
+            background: "#ffc0c0",
+          }}
+        >
           <div className="d-flex ">
             <div style={{ flex: 2 }}></div>
-            <div style={{ flex: 4, }} >
+            <div style={{ flex: 4 }}>
               <div className="d-flex flex-column mt-5 ">
                 <div className="heding_dstyle">Om oss</div>
                 <div className="heding_dstyle">Vanliga frågor</div>
@@ -35,14 +39,30 @@ function OffCanvasExample({ menu, name, ...props }) {
             </div>
           </div>
         </Offcanvas.Body>
-
       </Offcanvas>
     </>
   );
 }
 
 const Navbar = () => {
-  const [menu, setMenu] = React.useState(true);
+  const [menu, setMenu] = React.useState(false);
+  const [navbarScroll, setNavbarScroll] = React.useState(false);
+
+  const handleNavbarScroll = () => {
+    if (window.scrollY >= 80) {
+      setNavbarScroll(true);
+    } else {
+      setNavbarScroll(false);
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleNavbarScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavbarScroll);
+    };
+  }, []);
   return (
     <>
       <OffCanvasExample placement={"top"} menu={menu} />
@@ -54,6 +74,14 @@ const Navbar = () => {
           </div>
 
           <div className="right">
+            {navbarScroll && (
+              <div className="navbar-scroll">
+                <button className="button">
+                  <div className="text">Get a doctor's assessment here</div>
+                </button>
+              </div>
+            )}
+
             <div
               className={menu ? "close" : "hamburger"}
               onClick={() => setMenu(!menu)}

@@ -28,21 +28,21 @@ const HeroSection = ({ openModal }) => {
 
       <div className="hero-content">
         <h1 className="h1">
-          Besvärlig akne?
+          Troublesome acne?
           <br />
-          Vi hjälper dig inom 30 minuter.
+          We will help you within 30 minutes.{" "}
         </h1>
 
         <button className="button1" onClick={openModal}>
           <div className="button_background">
-            <p className="text">FÅ LÄKARBEDÖMNING HÄR</p>
+            <p className="text">Get a doctor's assessment here</p>
           </div>
           <div className="button_shadow">&nbsp;</div>
         </button>
 
         <div>
           <button className="button2">
-            <p className="text">RECEPTFÖRNYELSE/ÅTERBESÖK 0KR</p>
+            <p className="text">RECIPE RENEWAL / VISIT 0KR</p>
           </button>
         </div>
       </div>
