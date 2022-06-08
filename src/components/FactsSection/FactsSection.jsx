@@ -52,7 +52,7 @@ const FactsSection = () => {
                                     <div className="facts_text_wrap_33">
                                         Do you need help or have a questions?
                                         <div>
-                                            <img src={arrowright} className="arrow_rightff" />
+                                            <img src={arrowright} className="arrow_rightff" style={{ height: "32px", width: "32px" }} />
                                         </div>
                                     </div>
                                 </div>

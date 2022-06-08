@@ -1,60 +1,55 @@
 .footer_wrapper {
-    background-color: #ffc0c0;
-    height: 250px;
-
-    margin-top: -100px;
+  background-color: #ffc0c0;
+  height: 250px;
+  margin-top: -100px;
 }
-
 .gg {
-    display: flex;
-    gap: 100px;
-
-    align-items: center;
+  display: flex;
+  gap: 100px;
+  align-items: center;
 }
 
 .ffff {
-    max-width: 300px;
-    padding-top: 48px;
-    border-left: 1px solid black;
-    height: 250px;
-
+  max-width: 300px;
+  padding-top: 48px;
+  border-left: 1px solid black;
+  height: 250px;
 }
 
 .right_box {
-    padding-top: 10px;
-    padding-left: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 
 .f_logo {
-    width: 60%;
-    margin-left: 20px;
+  width: 60%;
+  margin-left: 20px;
 }
 
 .footer_box {
-    max-width: 1440px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 100px;
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 100px;
 }
 
 .footer_plocy {
-
-    /*padding-top: 48px;*/
-    font-size: 17px;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-
+  /*padding-top: 48px;*/
+  font-size: 17px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .footer_plocy1 {
-
-    /*padding-top: 48px;*/
-    font-size: 17px;
-    font-weight: 400;
-
-    cursor: pointer;
-
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .footer_wrapper {
+    margin-top: 0px;
+  }
 }

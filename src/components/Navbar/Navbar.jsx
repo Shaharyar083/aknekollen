@@ -1,27 +1,33 @@
 import React, { useState } from "react";
 import "./navbar.scss";
 import { Button, Offcanvas } from "react-bootstrap";
-
+import tip1 from "../../assets/images/tip1.svg";
+import tip2 from "../../assets/images/tip2.svg";
+import tip3 from "../../assets/images/tip3.svg";
+import tip4 from "../../assets/images/tip4.svg";
+import tip5 from "../../assets/images/tip5.svg";
+import tip6 from "../../assets/images/tip6.svg";
 // images & icons
 import logo from "../../assets/images/logo.svg";
 
 function OffCanvasExample({ menu, name, ...props }) {
+  const array = [tip1, tip2, tip3, tip4, tip5, tip6];
   return (
     <>
       <Offcanvas
         show={menu}
         {...props}
         style={{
-          marginRight: "17px",
           marginTop: "64px",
-          height: "100vh",
+          height: "100%",
           background: "#ffc0c0",
+          width: "100vw",
         }}
       >
         <Offcanvas.Body style={{ paddingTop: "0px" }}>
           <div className="d-flex ">
-            <div style={{ flex: 2 }}></div>
-            <div style={{ flex: 4, }} >
+            <div style={{ flex: 2 }} className="skip_text"></div>
+            <div style={{ flex: 4 }}>
               <div className="d-flex flex-column mt-5 ">
                 <div className="heding_dstyle">Om oss</div>
                 <div className="heding_dstyle">Vanliga frågor</div>
@@ -30,12 +36,23 @@ function OffCanvasExample({ menu, name, ...props }) {
             </div>
             <div
               style={{ flex: 4, borderLeft: "1px solid #000", height: "95vh" }}
+              className="nav_text_align"
             >
-              2
+              <div className="nav_text_style">
+                Do not miss our other checks!
+              </div>
+              <div>
+                {array.map((data, index) => {
+                  return (
+                    <div style={{ marginTop: "24px" }} key={index}>
+                      <img src={data} alt="" height={32} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </Offcanvas.Body>
-
       </Offcanvas>
     </>
   );

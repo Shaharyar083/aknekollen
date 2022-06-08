@@ -12,7 +12,7 @@ const Modal = ({ close }) => {
   const [surveyCompleted, setSurveyCompleted] = React.useState(false);
   console.log("payload");
   return (
-    <div className="modal-get-doctor">
+    <div className="modal-get-doctor" style={{ paddingRight: "0px" }}>
       <div className="main-wrapper">
         <img src={cancel} alt="" className="cancel" onClick={close} />
 
