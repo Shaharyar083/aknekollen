@@ -35,6 +35,7 @@ function OffCanvasExample({ menu, name, ...props }) {
             </div>
           </div>
         </Offcanvas.Body>
+
       </Offcanvas>
     </>
   );
