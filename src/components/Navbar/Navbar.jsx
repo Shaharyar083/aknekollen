@@ -25,7 +25,12 @@ function OffCanvasExample({ menu, name, ...props }) {
 
         }}
       >
-        <Offcanvas.Body style={{ paddingTop: "0px" }}>
+        <Offcanvas.Body
+          style={{
+            paddingTop: "0px",
+            background: "#ffc0c0",
+          }}
+        >
           <div className="d-flex ">
             <div style={{ flex: 2 }} className="skip_text"></div>
             <div style={{ flex: 4 }}>
@@ -60,7 +65,24 @@ function OffCanvasExample({ menu, name, ...props }) {
 }
 
 const Navbar = () => {
-  const [menu, setMenu] = React.useState(true);
+  const [menu, setMenu] = React.useState(false);
+  const [navbarScroll, setNavbarScroll] = React.useState(false);
+
+  const handleNavbarScroll = () => {
+    if (window.scrollY >= 80) {
+      setNavbarScroll(true);
+    } else {
+      setNavbarScroll(false);
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleNavbarScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavbarScroll);
+    };
+  }, []);
   return (
     <>
       <OffCanvasExample placement={"top"} menu={menu} />
@@ -72,6 +94,14 @@ const Navbar = () => {
           </div>
 
           <div className="right">
+            {navbarScroll && (
+              <div className="navbar-scroll">
+                <button className="button">
+                  <div className="text">Get a doctor's assessment here</div>
+                </button>
+              </div>
+            )}
+
             <div
               className={menu ? "close" : "hamburger"}
               onClick={() => setMenu(!menu)}
