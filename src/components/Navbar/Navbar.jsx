@@ -22,6 +22,7 @@ function OffCanvasExample({ menu, name, ...props }) {
           height: "100%",
           background: "#ffc0c0",
           width: "100vw",
+
         }}
       >
         <Offcanvas.Body style={{ paddingTop: "0px" }}>
