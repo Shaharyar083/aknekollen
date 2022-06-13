@@ -6,6 +6,7 @@ import { QUESTIONS } from "./data";
 let payload = [];
 
 const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
+  const [animation, setAnimation] = React.useState(["push"]);
   const [state, setState] = React.useState(QUESTIONS[0]);
   const [input, setInput] = React.useState("");
   const [checkboxes, setCheckboxes] = React.useState([]);
@@ -48,52 +49,65 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       modalClose();
     }
 
-    if (nextQuestionID !== "")
+    if (nextQuestionID !== "") {
       setState(QUESTIONS.find((item) => item.id === nextQuestionID));
+      setAnimation([...animation, "push"]);
+    }
   };
 
   return (
-    <div className="survey-component">
-      <div className="question">{state?.question}</div>
+    <>
+      {animation.map(
+        (_, index) =>
+          animation.length - 1 === index && (
+            <div className={"survey-component fade-in-bottom"}>
+              <div className="question">{state?.question}</div>
 
-      {state?.input?.required && (
-        <input
-          placeholder={state?.input?.placeholder}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="input"
-        />
-      )}
+              {state?.input?.required && (
+                <input
+                  placeholder={state?.input?.placeholder}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  className="input"
+                />
+              )}
 
-      {state?.checkbox?.required && (
-        <div className="checkbox-wrap">
-          {state?.checkbox?.values.map((val, idx) => (
-            <div key={idx} className="checkbox-inline">
-              <input
-                id={val}
-                type="checkbox"
-                checked={checkboxes.includes(val) ? true : false}
-                onChange={() => handleCheck(val)}
-              />
-              <label htmlFor={val}>{val}</label>
+              {state?.checkbox?.required && (
+                <div className="checkbox-wrap">
+                  {state?.checkbox?.values.map((val, idx) => (
+                    <div key={idx} className="checkbox-inline">
+                      <input
+                        id={val}
+                        type="checkbox"
+                        checked={checkboxes.includes(val) ? true : false}
+                        onChange={() => handleCheck(val)}
+                      />
+                      <label htmlFor={val}>{val}</label>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {state?.buttons.map((data, idx) => (
+                <div className="answer" key={idx}>
+                  <div
+                    className="button"
+                    onClick={() =>
+                      handleSurveyData(
+                        data?.answer,
+                        data?.next,
+                        data?.completed
+                      )
+                    }
+                  >
+                    {data?.answer}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )
       )}
-
-      {state?.buttons.map((data, idx) => (
-        <div className="answer" key={idx}>
-          <div
-            className="button"
-            onClick={() =>
-              handleSurveyData(data?.answer, data?.next, data?.completed)
-            }
-          >
-            {data?.answer}
-          </div>
-        </div>
-      ))}
-    </div>
+    </>
   );
 };
 

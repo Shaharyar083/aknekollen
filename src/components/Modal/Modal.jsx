@@ -10,7 +10,7 @@ import cancel from "../../assets/images/cancel.svg";
 
 const Modal = ({ close }) => {
   const [surveyCompleted, setSurveyCompleted] = React.useState(false);
-  console.log("payload");
+  
   return (
     <div className="modal-get-doctor" style={{ paddingRight: "0px" }}>
       <div className="main-wrapper">

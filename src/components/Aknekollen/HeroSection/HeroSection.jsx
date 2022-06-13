@@ -26,14 +26,14 @@ const HeroSection = ({ openModal }) => {
         <img src={hero1900px} className="hero-section-image-desktop" alt="" />
       </picture>
 
-      <div className="hero-content">
+      <div className="hero-content fade-in-bottom">
         <h1 className="h1">
           Troublesome acne?
           <br />
           We will help you within 30 minutes.{" "}
         </h1>
 
-        <button className="button1" onClick={openModal}>
+        <button className="button1 outline-none" onClick={openModal}>
           <div className="button_background">
             <p className="text">Get a doctor's assessment here</p>
           </div>
@@ -41,7 +41,7 @@ const HeroSection = ({ openModal }) => {
         </button>
 
         <div>
-          <button className="button2">
+          <button className="button2 outline-none">
             <p className="text">RECIPE RENEWAL / VISIT 0KR</p>
           </button>
         </div>
