@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./survey.scss";
-import { setCurrentServey } from "../Redux/responseReducer"
+import { setCurrentServey } from "../Redux/responseReducer";
 
 import { QUESTIONS } from "./data";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 let payload = [];
 
 const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
-  const dispatch = useDispatch()
-  const store = useSelector((store) => store)
+  const dispatch = useDispatch();
+  const store = useSelector((store) => store);
   const [animation, setAnimation] = React.useState(["push"]);
   const [state, setState] = React.useState(QUESTIONS[0]);
   const [input, setInput] = React.useState("");
@@ -78,7 +78,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       // survey completed
       setSurveyCompleted(true);
       console.log("result", payload);
-      dispatch(setCurrentServey(payload))
+      dispatch(setCurrentServey(payload));
     }
 
     if (nextQuestionID === "" && completeSurvey === false) {
@@ -92,9 +92,6 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       setAnimation([...animation, "push"]);
     }
   };
-
-  console.log("payload", payload);
-  console.log("setState", state);
 
   return (
     <>
