@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Row, Col, Button } from "react-bootstrap";
+import { AiOutlineUser } from "react-icons/ai";
 import { notification } from "antd";
 import { MdDeleteSweep } from "react-icons/md";
-
+// import UpdateCategory from "../UpdateCategory";0
 
 // material ui tables
 import Modal from "react-bootstrap/Modal";
@@ -18,7 +19,7 @@ import TableRow from "@material-ui/core/TableRow";
 import { FiEdit } from "react-icons/fi";
 
 import { useSelector, useDispatch } from "react-redux";
-import { deleteUser } from "../Redux/adminReducer"
+import { deleteUser } from "../Redux/adminReducer";
 import "../loginandsignup/admin.css";
 
 const useStyles = makeStyles({
@@ -63,7 +64,15 @@ function UserResponses() {
         setPage(0);
     };
 
-    const createData = (index, _id, email, response, trackingClientInfo, edit, del) => {
+    const createData = (
+        index,
+        _id,
+        email,
+        response,
+        trackingClientInfo,
+        edit,
+        del
+    ) => {
         return {
             index,
             _id,
@@ -89,7 +98,7 @@ function UserResponses() {
                         data.trackingClientInfo,
                         <span className="cursor" onClick={() => showEditModal(data)}>
                             <FiEdit style={{ color: "blue" }} />
-                        </span >,
+                        </span>,
                         <span className="cursor" onClick={() => showModal(data)}>
                             <MdDeleteSweep
                                 className="cursor"
@@ -104,16 +113,10 @@ function UserResponses() {
     }, [store?.responseReducer?.responses]);
     //
 
-    const showEditModal = (item, data) => {
-        if (data) {
-            setEditModalVisible(true);
-            setEditItem(item);
-        } else {
-            notification["warning"]({
-                message: "You are not allowded to edit category",
-                placement: "bottomRight",
-            });
-        }
+    const showEditModal = (data) => {
+        console.log("ali raza", data);
+        setEditModalVisible(true);
+        setEditItem(data);
     };
     const closeModel = () => {
         setEditModalVisible(false);
@@ -186,7 +189,9 @@ function UserResponses() {
                                             </TableCell>
                                             <TableCell align="center">{row._id}</TableCell>
                                             <TableCell align="center">{row.email}</TableCell>
-                                            <TableCell align="center">{row?.response?.length}</TableCell>
+                                            <TableCell align="center">
+                                                {row?.response?.length}
+                                            </TableCell>
                                             <TableCell align="center">{row.edit}</TableCell>
                                             {/* <TableCell align="center">{row.del}</TableCell> */}
                                         </TableRow>
@@ -212,7 +217,32 @@ function UserResponses() {
                                         </Button>
                                     </Modal.Footer>
                                 </Modal>
-
+                                <Modal
+                                    show={editModalVisible}
+                                    centered
+                                    onHide={() => setEditModalVisible(false)}
+                                    aria-labelledby="contained-modal-title-vcenter"
+                                    size="xl"
+                                >
+                                    <Modal.Header closeButton>
+                                        <Modal.Title id="contained-modal-title-vcenter">
+                                            User Response
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body className="show-grid">
+                                        {editItem &&
+                                            editItem?.response?.map((data, index) => {
+                                                return (
+                                                    <>
+                                                        <div className="">
+                                                            <h4>{data.question}</h4>
+                                                            <p>{data.answer}</p>
+                                                        </div>
+                                                    </>
+                                                );
+                                            })}
+                                    </Modal.Body>
+                                </Modal>
                             </TableBody>
                         </Table>
                     </TableContainer>
