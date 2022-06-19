@@ -72,3 +72,56 @@ code {
     opacity: 1;
   }
 }
+.cursor {
+  cursor: pointer !important;
+}
+
+.main_heding {
+  font-family: "Poppins" !important;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 44px;
+  line-height: 66px;
+  color: #000000;
+}
+
+.space_top {
+  padding-top: 100px !important;
+}
+
+.over {
+  overflow-y: scroll !important;
+  height: 85%;
+  padding: 16px;
+}
+.MuiDialog-root {
+  z-index: 1 !important;
+}
+
+/* new side bar */
+.main-content {
+  position: relative;
+  margin-top: 56px;
+  margin-left: auto;
+}
+
+.hide-on-large-only {
+  display: none !important;
+}
+@media (max-width: 998px) {
+  .main-content {
+    margin: auto !important;
+    width: auto !important;
+    margin-top: 56px !important;
+  }
+  .hide-on-large-only {
+    display: block !important;
+  }
+}
+
+.pro-sidebar > .pro-sidebar-inner {
+  background: #0c1e35 !important;
+  /* height: 100%;
+  position: relative;
+  z-index: 101; */
+}

@@ -1,0 +1,120 @@
+.logo_style {
+  padding: 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.switch_style {
+  color: green !important;
+}
+.cursor {
+  cursor: pointer;
+}
+.side_bar_color {
+  background: #0c1e35 !important;
+}
+.image {
+  max-width: 100% !important;
+  width: 60%;
+}
+
+.MuiAppBar-colorPrimary {
+  background: #0c1e35 !important;
+  /* background: #1a1a27 !important; */
+}
+.MuiToolbar-root {
+  justify-content: space-between !important;
+}
+.bell_icon_div {
+  margin-left: auto !important;
+}
+.arrow_bold_left {
+  color: white;
+}
+.arrow_bold_left:hover {
+  color: #3699ff !important;
+}
+.MuiListItemIcon-root {
+  min-width: 0px !important;
+}
+.content {
+  margin-left: 25px;
+}
+.bell_icon {
+  color: white;
+  height: 25px;
+  width: 25px;
+}
+.logo_img_two {
+  margin-top: 10px;
+}
+.content {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: "Inter";
+  color: #a2a3b7;
+}
+.icon_dashboard_color {
+  color: #a2a3b7;
+}
+.hover_listItem:hover .content {
+  color: white !important;
+}
+.hover_listItem:hover .icon_dashboard_color {
+  color: #3699ff !important;
+}
+.actives_s .icon_dashboard_color {
+  color: #3699ff !important;
+}
+.actives_s .content {
+  color: white !important;
+}
+.lele_text {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+.MuiList-padding {
+  padding-top: 60px !important;
+}
+
+.cursorss {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.popover-arrow {
+  display: none !important;
+}
+
+/* ======================== */
+.pop_basics {
+  height: 50%;
+  position: fixed;
+  z-index: 20000;
+  margin-left: auto;
+}
+
+.pop_head_img {
+  background: #3699ff;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inter";
+}
+
+.md_menu {
+  color: #1a1a27;
+}
+
+.feed_span {
+  color: #1a1a27;
+  font-size: 15px;
+  font-family: "Inter";
+  font-weight: bold;
+}

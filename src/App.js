@@ -1,33 +1,48 @@
-import * as react from "react";
-
-// components
-import Navbar from "./components/Navbar/Navbar";
-import HeroSection from "./components/Aknekollen/HeroSection/HeroSection";
-import Modal from "./components/Modal/Modal";
-import OpeningHours from "./components/OpeningHours/OpeningHours";
-import AboutSection from "./components/AboutSection/AboutSection";
-import Fakta from "../src/components/fakta";
-import Footer from "../src/components/Footer/index";
-import "bootstrap/dist/css/bootstrap.min.css";
-import FactsSection from "./components/FactsSection/FactsSection";
+import react, { useEffect } from "react";
+import "antd/dist/antd.css";
+import SideBar from "./components/sidebar/SideBar";
+import Home from "../src/components/home/Home";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import Login from "./components/loginandsignup/Login";
+import Signup from "./components/loginandsignup/Signup";
+import { getAllUsers } from "../src/components/Redux/adminReducer"
+import { getAllResponses } from "../src/components/Redux/responseReducer"
+import Users from "./components/users/Users";
+import UserResponses from "./components/responses/UserResponses";
 
 function App() {
-  const [modal, setModal] = react.useState(false);
+  const store = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllUsers())
+    dispatch(getAllResponses())
+  }, [])
+
   return (
     <>
-      {modal ? (
-        <Modal close={() => setModal(false)} />
-      ) : (
-        <>
-          <Navbar />
-          <HeroSection openModal={() => setModal(true)} />
-          <OpeningHours />
-          <AboutSection />
-          <FactsSection />
-          {/* <Fakta /> */}
-          <Footer />
-        </>
-      )}
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/admin/login" component={Login} />
+          <Route exact path="/admin/signup" component={Signup} />
+          <Route path="/dashboard">
+            <SideBar />
+            <main
+              className="main-content"
+              style={{
+                width: store?.navReducer?.dashboardMargin
+                  ? "calc(100% - 270px)"
+                  : "calc(100% - 80px)",
+              }}
+            >
+              <Route exact path="/dashboard/responselist" component={UserResponses} />
+              <Route exact path="/dashboard" component={Users} />
+            </main>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

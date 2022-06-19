@@ -89,7 +89,15 @@
   margin-top: 10px;
   width: 20%;
 }
+.margin_setting {
+  margin-bottom: 100px;
+}
 
+@media screen and (max-width: 995px) {
+  .margin_setting {
+    margin-bottom: 0px;
+  }
+}
 @media screen and (max-width: 995px) {
   .facts_bg_stiker {
     position: absolute;
