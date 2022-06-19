@@ -10,6 +10,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
   const [state, setState] = React.useState(QUESTIONS[0]);
   const [input, setInput] = React.useState("");
   const [checkboxes, setCheckboxes] = React.useState([]);
+  const [image, setImage] = React.useState({});
 
   const handleCheck = (value) => {
     if (checkboxes.includes(value)) {
@@ -19,9 +20,37 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     }
   };
 
-  const handleSurveyData = (answer, nextQuestionID, completeSurvey) => {
+  const handleImage = (e) => {
+    setImage({
+      file: e.target.files[0],
+      src: URL.createObjectURL(e.target.files[0]),
+    });
+  };
+
+  const imageUpload = async () => {
+    let { file } = image;
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "nextAuth");
+    formData.append("cloud_name", "Sherry7");
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/Sherry7/image/upload",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const res2 = await res.json();
+
+    return res2.url;
+  };
+
+  const handleSurveyData = ({ answer, nextQuestionID, completeSurvey }) => {
     let selectedQuestion = state?.question;
-    let selectedAnswer;
+    let selectedAnswer = "";
+    let imageUrl = "";
 
     if (state?.input?.required) {
       selectedAnswer = input;
@@ -29,13 +58,16 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     } else if (state?.checkbox?.required) {
       selectedAnswer = checkboxes.join();
       setCheckboxes([]);
+    } else if (state?.image?.required) {
+      imageUrl = imageUpload();
+      setImage({});
     } else {
       selectedAnswer = answer;
     }
 
     payload = [
       ...payload,
-      { question: selectedQuestion, answer: selectedAnswer },
+      { question: selectedQuestion, answer: selectedAnswer, image: imageUrl },
     ];
 
     if (nextQuestionID === "" && completeSurvey === true) {
@@ -47,6 +79,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     if (nextQuestionID === "" && completeSurvey === false) {
       // survey exit
       modalClose();
+      payload = [];
     }
 
     if (nextQuestionID !== "") {
@@ -55,55 +88,103 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     }
   };
 
+  console.log("payload", payload);
+  console.log("setState", state);
+
   return (
     <>
       {animation.map(
         (_, index) =>
           animation.length - 1 === index && (
             <div className={"survey-component fade-in-bottom"}>
-              <div className="question">{state?.question}</div>
+              {Object.keys(image).length > 0 ? (
+                <>
+                  <img src={image?.src} alt="" className="image" />
 
-              {state?.input?.required && (
-                <input
-                  placeholder={state?.input?.placeholder}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  className="input"
-                />
-              )}
-
-              {state?.checkbox?.required && (
-                <div className="checkbox-wrap">
-                  {state?.checkbox?.values.map((val, idx) => (
-                    <div key={idx} className="checkbox-inline">
-                      <input
-                        id={val}
-                        type="checkbox"
-                        checked={checkboxes.includes(val) ? true : false}
-                        onChange={() => handleCheck(val)}
-                      />
-                      <label htmlFor={val}>{val}</label>
+                  <div className="answer">
+                    <div
+                      className="button"
+                      onClick={() =>
+                        handleSurveyData({
+                          answer: state?.buttons[0]?.answer,
+                          nextQuestionID: state?.buttons[0]?.next,
+                          completeSurvey: state?.buttons[0]?.completed,
+                        })
+                      }
+                    >
+                      Upload a image
                     </div>
-                  ))}
-                </div>
-              )}
-
-              {state?.buttons.map((data, idx) => (
-                <div className="answer" key={idx}>
-                  <div
-                    className="button"
-                    onClick={() =>
-                      handleSurveyData(
-                        data?.answer,
-                        data?.next,
-                        data?.completed
-                      )
-                    }
-                  >
-                    {data?.answer}
                   </div>
-                </div>
-              ))}
+
+                  <UploadControl onChange={handleImage}>
+                    <div className="answer">
+                      <div className="button" style={{ padding: "10px 30px" }}>
+                        Select another image
+                      </div>
+                    </div>
+                  </UploadControl>
+                </>
+              ) : (
+                <>
+                  <div className="question">{state?.question}</div>
+
+                  {state?.input?.required && (
+                    <input
+                      placeholder={state?.input?.placeholder}
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      className="input"
+                    />
+                  )}
+
+                  {state?.checkbox?.required && (
+                    <div className="checkbox-wrap">
+                      {state?.checkbox?.values.map((val, idx) => (
+                        <div key={idx} className="checkbox-inline">
+                          <input
+                            id={val}
+                            type="checkbox"
+                            checked={checkboxes.includes(val) ? true : false}
+                            onChange={() => handleCheck(val)}
+                          />
+                          <label htmlFor={val}>{val}</label>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {!state?.image?.required &&
+                    state?.buttons.map((data, idx) => (
+                      <div className="answer" key={idx}>
+                        <div
+                          className="button"
+                          onClick={() =>
+                            handleSurveyData({
+                              answer: data?.answer,
+                              nextQuestionID: data?.next,
+                              completeSurvey: data?.completed,
+                            })
+                          }
+                        >
+                          {data?.answer}
+                        </div>
+                      </div>
+                    ))}
+
+                  {state?.image?.required && (
+                    <UploadControl onChange={handleImage}>
+                      <div className="answer">
+                        <div
+                          className="button"
+                          style={{ padding: "15px 30px" }}
+                        >
+                          {state?.buttons[0]?.answer}
+                        </div>
+                      </div>
+                    </UploadControl>
+                  )}
+                </>
+              )}
             </div>
           )
       )}
@@ -112,3 +193,20 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
 };
 
 export default Survey;
+
+const UploadControl = ({ children, onChange, disabled }) => {
+  return (
+    <label htmlFor="contained-button-file">
+      <input
+        id="contained-button-file"
+        accept="image/*"
+        type="file"
+        value=""
+        onChange={disabled ? () => {} : onChange}
+        disabled={disabled}
+        style={{ display: "none" }}
+      />
+      {children}
+    </label>
+  );
+};

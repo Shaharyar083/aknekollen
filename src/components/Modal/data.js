@@ -268,9 +268,35 @@ export const QUESTIONS = [
     id: "32",
     question:
       "To make an assessment, we need to see your acne. Upload an overview image for each area that you have indicated that you have acne. We need a picture from 30 cm distance and one from 10 cm distance per area.",
-    buttons: [{ answer: "Upload a picture", next: "" }],
+    buttons: [{ answer: "Select image", next: "33" }],
     image: {
       required: true,
     },
+  },
+  {
+    id: "33",
+    question:
+      "Are you allergic to any antibiotics or other medicines? If yes, enter the box below",
+    buttons: [{ answer: "Continued", next: "34" }],
+    input: {
+      required: true,
+      placeholder: "write your answer",
+    },
+  },
+  {
+    id: "34",
+    question: "Have you or a relative had skin cancer?",
+    buttons: [
+      { answer: "Yes", next: "35" },
+      { answer: "No", next: "" },
+    ],
+  },
+  {
+    id: "35",
+    question: "Do you have a chronic intestinal disease?",
+    buttons: [
+      { answer: "Yes", next: "7" },
+      { answer: "No", next: "" },
+    ],
   },
 ];
