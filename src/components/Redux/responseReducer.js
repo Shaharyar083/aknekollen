@@ -6,7 +6,7 @@ const initialState = {
     currentSurvey: []
 }
 // all api request here
-export const getAllResponses = createAsyncThunk('getAllUsers', async () => {
+export const getAllResponses = createAsyncThunk('getAllResponses', async () => {
     try {
         const { data } = await CustomerAxiosInstance.get("response/getallresponses")
         return data.responses

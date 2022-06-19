@@ -85,15 +85,15 @@ export const adminReducer = createSlice({
     [getAllUsers.fulfilled]: (state, action) => {
       state.users = action.payload
     },
-    [deleteUser.fulfilled]: (state, action) => {
-      state.users = action.payload
-    },
-    [getCurrentUser.fulfilled]: (state, action) => {
-      state.currentUser = action.payload
-    },
-    [handelUpdateUsers.fulfilled]: (state, action) => {
-      state.users = action.payload
-    }
+    // [deleteUser.fulfilled]: (state, action) => {
+    //   state.users = action.payload
+    // },
+    // [getCurrentUser.fulfilled]: (state, action) => {
+    //   state.currentUser = action.payload
+    // },
+    // [handelUpdateUsers.fulfilled]: (state, action) => {
+    //   state.users = action.payload
+    // }
   },
 })
 
