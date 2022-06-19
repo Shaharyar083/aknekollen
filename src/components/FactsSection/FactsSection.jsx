@@ -17,7 +17,7 @@ const FactsSection = () => {
 
     return (
         <>
-            <div style={{ background: "#f6f2eb" }}>
+            <div style={{ background: "#f6f2eb" }} className="margin_setting">
                 <Container className="mobile_direction">
                     <div
                         className="main_container"
