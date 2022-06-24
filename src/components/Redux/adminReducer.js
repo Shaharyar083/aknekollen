@@ -29,6 +29,7 @@ export const getCurrentUser = createAsyncThunk('getCurrentUser', async (id, { ge
       isSuperAdmin: data?.user?.isSuperAdmin,
       permissions: data?.user?.permissions,
     }
+
     return currentUser
   } catch (err) {
     console.log(err)
