@@ -27,7 +27,7 @@ export const QUESTIONS = [
     buttons: [
       { answer: "Let", next: "6" },
       { answer: "moderate", next: "12" },
-      { answer: "Difficult", next: "" },
+      { answer: "Difficult", next: "6" },
     ],
   },
   {
@@ -42,7 +42,7 @@ export const QUESTIONS = [
       "Are you pregnant, breastfeeding or planning to become pregnant within six months?",
     buttons: [
       { answer: "Yes", next: "7" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "13" },
     ],
   },
   {
@@ -245,7 +245,7 @@ export const QUESTIONS = [
     question: "Did Epiduo have a good effect on acne and the skin?",
     buttons: [
       { answer: "Yes", next: "30" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "40" },
     ],
   },
   {
@@ -253,7 +253,7 @@ export const QUESTIONS = [
     question: "Have you tried Duac or Acnatac?",
     buttons: [
       { answer: "Yes", next: "31" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "32" },
     ],
   },
   {
@@ -261,7 +261,7 @@ export const QUESTIONS = [
     question: "Did Duac/Acnatac have a good effect on acne and the skin?",
     buttons: [
       { answer: "Yes", next: "32" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "36" },
     ],
   },
   {
@@ -288,15 +288,71 @@ export const QUESTIONS = [
     question: "Have you or a relative had skin cancer?",
     buttons: [
       { answer: "Yes", next: "35" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "35" },
     ],
   },
   {
     id: "35",
-    question: "Do you have a chronic intestinal disease?",
+    question: "Do you have a chronic bowel disease?",
     buttons: [
       { answer: "Yes", next: "7" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "7" },
+    ],
+  },
+  {
+    id: "36",
+    question: "Did you use Duac / Acnatac regularly for 4-6 weeks?",
+    buttons: [
+      { answer: "Yes", next: "37" },
+      { answer: "No", next: "39" },
+    ],
+  },
+  {
+    id: "37",
+    question: "Was the skin irritated or worse by Duac / Acnatac?",
+    buttons: [
+      { answer: "Yes", next: "32" },
+      { answer: "No", next: "38" },
+    ],
+  },
+  {
+    id: "38",
+    question:
+      "It can take up to 6 weeks before you see the results of acne treatment. If it still has not improved after that treatment time, you are welcome to contact us again.",
+    buttons: [{ answer: "Okay", next: "", completed: false }],
+  },
+  {
+    id: "39",
+    question:
+      "Did you stop because your skin became irritated or worse by Duac / Acnatac?",
+    buttons: [
+      { answer: "Yes", next: "32" },
+      { answer: "No", next: "38" },
+    ],
+  },
+  {
+    id: "40",
+    question: "Did you use Epiduo regularly for 4-6 weeks?",
+    buttons: [
+      { answer: "Yes", next: "41" },
+      { answer: "No", next: "42" },
+    ],
+  },
+  {
+    id: "41",
+    question: "Was the skin irritated or worse by Epiduo?",
+    buttons: [
+      { answer: "Yes", next: "30" },
+      { answer: "No", next: "30" },
+    ],
+  },
+  {
+    id: "42",
+    question:
+      "Did you stop because the skin became irritated or worse by Epiduo?",
+    buttons: [
+      { answer: "Yes", next: "30" },
+      { answer: "No", next: "38" },
     ],
   },
 ];
