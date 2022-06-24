@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import CustomerAxiosInstance from '../CustomerAxiosInstance'
 import jwtDecode from 'jwt-decode';
-
-
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+console.log("getCurrentUser1122", cookies.get('akneedmintoken'))
 const initialState = {
   users: [],
   currentUser: null
@@ -20,16 +21,13 @@ export const getAllUsers = createAsyncThunk('getAllUsers', async () => {
   }
 })
 
-export const getCurrentUser = createAsyncThunk('getCurrentUser', async (id, { getState }) => {
+export const getCurrentUser = createAsyncThunk('getCurrentUser', async () => {
   try {
-    console.log("getCurrentUser1122", id)
-    const { data } = await CustomerAxiosInstance.get(`/admin/currentuser/${id}`)
+
+    let decodedToken = await jwtDecode(cookies.get('akneedmintoken'))
+    const { data } = await CustomerAxiosInstance.get(`/admin/currentuser/${decodedToken._id}`)
     console.log("getCurrentUser1122", data)
-    let currentUser = {
-      isSuperAdmin: data?.user?.isSuperAdmin,
-      permissions: data?.user?.permissions,
-    }
-    return currentUser
+    return data?.user
   } catch (err) {
     console.log(err)
   }
@@ -88,9 +86,9 @@ export const adminReducer = createSlice({
     // [deleteUser.fulfilled]: (state, action) => {
     //   state.users = action.payload
     // },
-    // [getCurrentUser.fulfilled]: (state, action) => {
-    //   state.currentUser = action.payload
-    // },
+    [getCurrentUser.fulfilled]: (state, action) => {
+      state.currentUser = action.payload
+    },
     // [handelUpdateUsers.fulfilled]: (state, action) => {
     //   state.users = action.payload
     // }

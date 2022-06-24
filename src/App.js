@@ -6,10 +6,11 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Login from "./components/loginandsignup/Login";
 import Signup from "./components/loginandsignup/Signup";
-import { getAllUsers } from "../src/components/Redux/adminReducer"
+import { getAllUsers, getCurrentUser } from "../src/components/Redux/adminReducer"
 import { getAllResponses } from "../src/components/Redux/responseReducer"
 import Users from "./components/users/Users";
 import UserResponses from "./components/responses/UserResponses";
+
 
 function App() {
   const store = useSelector((state) => state);
@@ -18,6 +19,7 @@ function App() {
   useEffect(() => {
     dispatch(getAllUsers())
     dispatch(getAllResponses())
+    dispatch(getCurrentUser())
   }, [])
 
   return (
