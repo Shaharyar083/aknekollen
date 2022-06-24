@@ -161,6 +161,9 @@ function UserResponses() {
                                         Response ID
                                     </TableCell>
                                     <TableCell padding="normal" align="center">
+                                        Location
+                                    </TableCell>
+                                    <TableCell padding="normal" align="center">
                                         User Email
                                     </TableCell>
                                     <TableCell padding="normal" align="center">
@@ -188,6 +191,7 @@ function UserResponses() {
                                                 {row.index}
                                             </TableCell>
                                             <TableCell align="center">{row._id}</TableCell>
+                                            <TableCell align="center">{row.trackingClientInfo.country + "," + row.trackingClientInfo.regionName}</TableCell>
                                             <TableCell align="center">{row.email}</TableCell>
                                             <TableCell align="center">
                                                 {row?.response?.length}
@@ -235,8 +239,13 @@ function UserResponses() {
                                                 return (
                                                     <>
                                                         <div className="">
-                                                            <h4>{data.question}</h4>
-                                                            <p>{data.answer}</p>
+                                                            <h5 style={{ color: "burlywood" }}>Question :{data.question}</h5>
+                                                            <div className="d-flex align-items-center">
+                                                                <h5>UserResponse:</h5>
+                                                                <span style={{ marginLeft: "10px", marginBottom: "7px" }}>
+                                                                    {data.answer}
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </>
                                                 );

@@ -58,19 +58,19 @@ const SideBar = (props) => {
                         className="cursor image"
                         onClick={() => toggleChecked()}
                     /> */}
-                    <h1 className="cursor image" onClick={() => toggleChecked()}>
+                    <h4 className="cursor image" style={{ color: "white" }} onClick={() => toggleChecked()}>
                         Web Site Logo
-                    </h1>
+                    </h4>
                 </SidebarHeader>
                 <Menu iconShape="round">
                     <MenuItem icon={<RiDashboardLine />}>
                         <Link to="/dashboard/responselist">User Responses</Link>
                     </MenuItem>
-                    {/* {store?.adminReducer?.currentUser?.isSuperAdmin && ( */}
-                    <MenuItem icon={<RiDashboardLine />}>
-                        <Link to="/dashboard">Users</Link>
-                    </MenuItem>
-                    {/* )} */}
+                    {store?.adminReducer?.currentUser?.isAdmin && (
+                        <MenuItem icon={<RiDashboardLine />}>
+                            <Link to="/dashboard">Users</Link>
+                        </MenuItem>
+                    )}
                 </Menu>
                 <SidebarFooter style={{ paddingBottom: "50%" }}>
                     <Menu>

@@ -196,7 +196,7 @@ const TopBar = () => {
                     >
                         <i className="fa fa-bars" />
                     </Button>
-                    <OverlayTrigger
+                    {/* <OverlayTrigger
                         trigger="click"
                         placement="bottom-end"
                         overlay={popover}
@@ -217,7 +217,7 @@ const TopBar = () => {
                                 )}
                             </div>
                         </div>
-                    </OverlayTrigger>
+                    </OverlayTrigger> */}
                 </Toolbar>
             </AppBar>
         </>
