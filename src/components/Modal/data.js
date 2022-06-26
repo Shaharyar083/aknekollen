@@ -25,9 +25,9 @@ export const QUESTIONS = [
     id: "4",
     question: "How would you describe the severity of your acne?",
     buttons: [
-      { answer: "Let", next: "6" },
-      { answer: "moderate", next: "12" },
-      { answer: "Difficult", next: "6" },
+      { answer: "Mild", next: "6" },
+      { answer: "Moderate", next: "12" },
+      { answer: "Severe", next: "6" },
     ],
   },
   {
@@ -49,7 +49,7 @@ export const QUESTIONS = [
     id: "7",
     question:
       "Do you take any medicines regularly? If yes, fill in the ones in the box below",
-    buttons: [{ answer: "Continued", next: "8" }],
+    buttons: [{ answer: "Continue", next: "8" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -58,7 +58,7 @@ export const QUESTIONS = [
   {
     id: "8",
     question: "Other diseases? If yes, fill in the ones in the box below",
-    buttons: [{ answer: "Continued", next: "9" }],
+    buttons: [{ answer: "Continue", next: "9" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -68,7 +68,7 @@ export const QUESTIONS = [
     id: "9",
     question:
       "Do you want to provide other medical information? If yes, fill in the box below",
-    buttons: [{ answer: "Continued", next: "10" }],
+    buttons: [{ answer: "Continue", next: "10" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -114,10 +114,10 @@ export const QUESTIONS = [
   {
     id: "14",
     question: "Mark the areas where you have acne",
-    buttons: [{ answer: "Continued", next: "15" }],
+    buttons: [{ answer: "Continue", next: "15" }],
     checkbox: {
       required: true,
-      values: ["face", "Breast", "back"],
+      values: ["Face", "Chest", "Back"],
     },
   },
   {
@@ -132,7 +132,7 @@ export const QUESTIONS = [
     id: "16",
     question:
       "Do you have acne in any area other than the previous options? If yes, enter in text",
-    buttons: [{ answer: "Continued", next: "17" }],
+    buttons: [{ answer: "Continue", next: "17" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -164,7 +164,7 @@ export const QUESTIONS = [
   {
     id: "19",
     question: "How long have you had acne?",
-    buttons: [{ answer: "Continued", next: "20" }],
+    buttons: [{ answer: "Continue", next: "20" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -277,7 +277,7 @@ export const QUESTIONS = [
     id: "33",
     question:
       "Are you allergic to any antibiotics or other medicines? If yes, enter the box below",
-    buttons: [{ answer: "Continued", next: "34" }],
+    buttons: [{ answer: "Continue", next: "34" }],
     input: {
       required: true,
       placeholder: "write your answer",
