@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import HeroSection from "../Aknekollen/HeroSection/HeroSection";
 import Modal from "../Modal/Modal";
