@@ -135,7 +135,7 @@ function Signup(props) {
                                             className="store-btnss"
                                             onClick={(event) => handleSubmit(event)}
                                         >
-                                            Login
+                                            Signup
                                         </button>
                                     </Form.Item>
                                 </Form>

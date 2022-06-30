@@ -39,8 +39,8 @@ function App() {
                   : "calc(100% - 80px)",
               }}
             >
-              <Route exact path="/dashboard/responselist" component={UserResponses} />
-              <Route exact path="/dashboard" component={Users} />
+              <Route exact path="/dashboard" component={UserResponses} />
+              <Route exact path="/dashboard/users" component={Users} />
             </main>
           </Route>
         </Switch>

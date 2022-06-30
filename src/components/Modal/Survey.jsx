@@ -51,7 +51,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     return res2.url;
   };
 
-  const handleSurveyData = ({ answer, nextQuestionID, completeSurvey }) => {
+  const handleSurveyData = async ({ answer, nextQuestionID, completeSurvey }) => {
     let selectedQuestion = state?.question;
     let selectedAnswer = "";
     let imageUrl = "";
@@ -63,7 +63,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       selectedAnswer = checkboxes.join();
       setCheckboxes([]);
     } else if (state?.image?.required) {
-      imageUrl = imageUpload();
+      imageUrl = await imageUpload();
       setImage({});
     } else {
       selectedAnswer = answer;
@@ -204,7 +204,7 @@ const UploadControl = ({ children, onChange, disabled }) => {
         accept="image/*"
         type="file"
         value=""
-        onChange={disabled ? () => {} : onChange}
+        onChange={disabled ? () => { } : onChange}
         disabled={disabled}
         style={{ display: "none" }}
       />

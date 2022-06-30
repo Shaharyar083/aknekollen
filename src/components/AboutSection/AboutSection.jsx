@@ -5,24 +5,23 @@ import arrow from "../../assets/images/arrow.svg";
 import girl from "../../assets/images/girl_pic.jpg";
 
 const part1 = {
-    mainheading: "Om aknekollen.se",
+    mainheading: "About acnecheck.ae",
     text1:
-        "Since 2016, 400,000 people have sought care from us and our checkpoints, which are exclusively aimed at diagnoses that work best online. The diagnoses are also those that the patient is often familiar with and therefore may suspect they have. In this way, the patient himself effectively seeks the right care.",
+        "We are a group of doctors that seek to make high quality medical attention available to the UAE, we exclusively focus on conditions that work best with online consulations. A patient suffering from Acne is often very familiar with that fact and more often than not the patient has tried to find answers online and there they will find us.",
     text2:
-        " During a visit to us, you answer a couple of questions about your health - the same questions that the doctor at a physical health center asks. The answers show if you are in need of care and if necessary the doctor gives advice and e-prescription.",
-    text3:
-        " You will receive an answer from a doctor via text message and email within 30 minutes.",
+        "During a visit to acnecheck.ae, you will answer a couple of dynamic questions about your health - the same questions that the doctor at a physical health center would ask. The answers show if you are in need of medical care and if necessary our doctors gives advice and an e-prescription.",
+    text3: "",
     flag: true,
     margin: "0px",
 };
 const part2 = {
     mainheading: "This is what the doctor says",
     text1:
-        "More sebum is formed in the sebaceous glands during adolescence while increasing a special bacterium that also promotes acne. This makes the sebaceous glands more easily inflamed and you get acne rashes.",
+        "During adolescence, the sebaceous glands produce more sebum while producing more of a particular bacteria that helps to cause acne. This makes the sebaceous glands more prone to inflammation, which results in acne outbreaks.",
     text2:
-        "The fact that you get acne more easily on the face, chest and back is simply due to the fact that you have more sebaceous glands there. As I said, acne is common during adolescence, but that does not mean that it is such a natural part that the individual needs to go through several years with acne.",
+        "The reason why you develop acne more frequently on the face, chest, and back is simple: those areas contain more sebaceous glands. As I previously stated, acne is frequent during adolescence, but this does not imply that the person has to suffer from acne for a long period of time.",
     text3:
-        "There is very good help today, strangely enough, acne is a very undertreated skin disease.",
+        "Despite the fact that there is excellent treatment available today, acne is a skin condition that gets very little attention from doctors.",
     flag: false,
     margin: "30px",
 };
@@ -47,8 +46,8 @@ const AboutReusable = (props) => {
                             <img src={girl} alt="loading..." className="pic_main_style" />
                         </div>
                         <div className="d-flex flex-column mt-auto mb-auto ">
-                            <div className="tex_box_style">Matilda Lundblad</div>
-                            <div className="tex_box_style">SPECIALIST IN GENERAL MEDICINE</div>
+                            <div className="tex_box_style">Dr Mohammed Jawad</div>
+                            <div className="tex_box_style">Family Medicine Specialist </div>
                         </div>
                     </div>
                 )}

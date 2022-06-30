@@ -18,38 +18,33 @@ const OpeningHours = () => {
                             <div className="circle"></div>
                         </div>
                         <div className="text_style">
-                            PATIENT FEE. The visit usually costs SEK 100, you only pay if you
-                            receive medical treatment. No patient fee for you under the age of
-                            20, over the age of 85 or in the event of a prescription renewal,
-                            even for prescriptions that other care providers have printed out
-                            for you in the past. Free pass applies.
+                            PATIENT FEE. This doctors assesments is free of charge for all UAE
+                            citizens & residents to be eligible for the consultation you need
+                            to have an Emirates ID
                         </div>
                     </div>
                     <div className="d-flex mt-4">
                         <div className="circle"></div>
                         <div className="text_style">
-                            OPENING HOURS. We accept visits around the clock. The doctors handle
-                            visits 7-22, every day. You can therefore easily pick up your
-                            prescription within the pharmacy's opening hours
+                            OPENING HOURS. This service is available 24/7, the doctors handles
+                            your online visits from 7 am - 8 pm. Response time within 18 hours
+                            from completion of the online consultation
                         </div>
                     </div>
                 </div>
                 <div className="second_part">
                     <div className="second_first_img"></div>
                     <div className="middle_text">
-                        {change ? (
-                            <>
-                                <p>
-                                    Thank you aknekollen.se for being there for people like us who
-                                    do not like to apply to the health center because we simply
-                                    think it is too embarrassing or, in my case, socially
-                                    difficult.Thank you aknekollen.se for being there for people
-                                    like us who do not like to apply to the health center because we
-                                    simply think it is too embarrassing or, in my case, socially
-                                    difficult.
-                                </p>
-                                <div>Stina, 19 years old</div>
-                            </>
+                        {/* {change ? (
+                            <> */}
+                        <p>
+                            I love acnecheck.ae, It's always there and saves me both time
+                            and money when I'm dealing with breakouts, I've been too
+                            embarrassed to seek medical attention for my acne until i
+                            found acnecheck.
+                        </p>
+                        <div>Samar, 21 years old.</div>
+                        {/* </>
                         ) : (
                             <>
                                 <p>
@@ -58,7 +53,7 @@ const OpeningHours = () => {
                                 </p>
                                 <div>Stina, 19 years old</div>
                             </>
-                        )}
+                        )} */}
                     </div>
                     <div className="second_first_img2"></div>
                 </div>

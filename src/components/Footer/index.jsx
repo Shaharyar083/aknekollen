@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="gg">
             <div className="footer_plocy">
               <div className="mar">Privacy Policy</div>
-              <div className="mar"> Terms of purchase</div>
+              {/* <div className="mar"> Terms of purchase</div> */}
               <div className="mar">Contact Us</div>
             </div>
             <div className="footer_plocy1">About aknekollen.se</div>
@@ -20,7 +20,7 @@ const Footer = () => {
             <img src={logo} className="f_logo" />
 
             <div className="right_box">
-              InnovDr AB ORGNR: 559059-3256 Copyright @ 2016- 2022
+              A service by Raw Medical Services LLC
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const cookies = new Cookies();
 axios.defaults.headers.authorization = cookies.get('akneadmintoken');
 // console.log("cookies token", cookies.get('leeadmintoken'))
 const instance = axios.create({
-    baseURL: "http://localhost:6002/",
+    baseURL: process.env.REACT_APP_BASE_URL,
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "*",
     "Access-Control-Allow-Headers":
@@ -13,5 +13,5 @@ const instance = axios.create({
     crossorigin: true,
 });
 
-export const REACT_APP_BASE_URL = "http://localhost:6002/";
+export const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 export default instance;

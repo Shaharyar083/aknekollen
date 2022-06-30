@@ -85,7 +85,7 @@ const Navbar = () => {
   }, []);
   return (
     <>
-      <OffCanvasExample placement={"top"} menu={menu} />
+      {/* <OffCanvasExample placement={"top"} menu={menu} /> */}
 
       <div className="navbar-component">
         <div className="main-container">
@@ -103,7 +103,8 @@ const Navbar = () => {
             )}
 
             <div
-              className={menu ? "close" : "hamburger"}
+              // className={menu ? "close" : "hamburger"}
+              className="hamburger"
               onClick={() => setMenu(!menu)}
             >
               <span></span>

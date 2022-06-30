@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { OverlayTrigger, Popover, Navbar, Button } from "react-bootstrap";
 // import socketIOClient from "socket.io-client";
 import IconButton from "@material-ui/core/IconButton";
-import { FaAngleDoubleRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -194,7 +194,7 @@ const TopBar = () => {
                         className="hide-on-large-only mr-2 "
                         onClick={() => handleDrawerOpen()}
                     >
-                        <i className="fa fa-bars" />
+                        <FaBars />
                     </Button>
                     {/* <OverlayTrigger
                         trigger="click"

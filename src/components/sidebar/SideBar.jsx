@@ -64,11 +64,11 @@ const SideBar = (props) => {
                 </SidebarHeader>
                 <Menu iconShape="round">
                     <MenuItem icon={<RiDashboardLine />}>
-                        <Link to="/dashboard/responselist">User Responses</Link>
+                        <Link to="/dashboard">User Responses</Link>
                     </MenuItem>
                     {store?.adminReducer?.currentUser?.isAdmin && (
                         <MenuItem icon={<RiDashboardLine />}>
-                            <Link to="/dashboard">Users</Link>
+                            <Link to="/dashboard/users">Users</Link>
                         </MenuItem>
                     )}
                 </Menu>

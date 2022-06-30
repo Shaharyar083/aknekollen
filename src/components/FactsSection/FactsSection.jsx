@@ -31,13 +31,13 @@ const FactsSection = () => {
                                 ? " Acne is not because your skin is dirty. But it can help to wash your skin with a gentle wash and finish with a moisturizing lotion tailored to your affected area."
                                 : "Did you know that acne is caused by sebaceous glands in the skin becoming inflamed. Acne is also called pimples"}
                         </p>
-                        <div className="facts_last_link">
+                        {/* <div className="facts_last_link">
                             READ MORE ABOUT ACNE HERE
                             <img src={arrow1} alt="loading..." className="facts_img_style" />
-                        </div>
-                        <div className="facts_carton_img_wrap">
+                        </div> */}
+                        {/* <div className="facts_carton_img_wrap">
                             <img src={carton} className="facts_carton_img" />
-                        </div>
+                        </div> */}
                     </div>
                     <div
                         className="main_container2"
@@ -45,19 +45,23 @@ const FactsSection = () => {
                             padding: "80px 0px 80px 80px",
                         }}
                     >
-                        <div className="facts_image_wrapper">
-                            <div className="facts_bg_stiker">
-                                <div className="facts_bg_stiker_wrap">
-                                    <img src={bg_stiker} className="facts_stker_img_3" />
-                                    <div className="facts_text_wrap_33">
-                                        Do you need help or have a questions?
-                                        <div>
-                                            <img src={arrowright} className="arrow_rightff" style={{ height: "32px", width: "32px" }} />
-                                        </div>
+                        <div
+                            // className="facts_bg_stiker"
+                            className="m-auto"
+                        >
+                            <div className="facts_bg_stiker_wrap">
+                                <img src={bg_stiker} className="facts_stker_img_3" />
+                                <div className="facts_text_wrap_33">
+                                    Do you need help or have a questions?
+                                    <div>
+                                        <img src={arrowright} className="arrow_rightff" style={{ height: "32px", width: "32px" }} />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {/* <div className="facts_image_wrapper">
+                            
+                        </div> */}
                     </div>
                 </Container>
             </div>

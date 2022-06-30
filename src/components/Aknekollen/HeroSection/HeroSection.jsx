@@ -30,21 +30,21 @@ const HeroSection = ({ openModal }) => {
         <h1 className="h1">
           Troublesome acne?
           <br />
-          We will help you within 30 minutes.{" "}
+          We will help you within 30 minutes.
         </h1>
 
         <button className="button1 outline-none" onClick={openModal}>
           <div className="button_background">
             <p className="text">Get a doctor's assessment here</p>
           </div>
-          <div className="button_shadow">&nbsp;</div>
+          {/* <div className="button_shadow">&nbsp;</div> */}
         </button>
 
-        <div>
+        {/* <div>
           <button className="button2 outline-none">
             <p className="text">RECIPE RENEWAL / VISIT 0KR</p>
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div className="scroll-down">

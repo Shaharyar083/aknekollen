@@ -222,6 +222,7 @@ function UserResponses() {
                                     </Modal.Footer>
                                 </Modal>
                                 <Modal
+                                    style={{ padding: "70px 0px" }}
                                     show={editModalVisible}
                                     centered
                                     onHide={() => setEditModalVisible(false)}
@@ -244,6 +245,9 @@ function UserResponses() {
                                                                 <h5>UserResponse:</h5>
                                                                 <span style={{ marginLeft: "10px", marginBottom: "7px" }}>
                                                                     {data.answer}
+                                                                    {data.image &&
+                                                                        <img style={{ width: "100px" }} src={data.image} />
+                                                                    }
                                                                 </span>
                                                             </div>
                                                         </div>
