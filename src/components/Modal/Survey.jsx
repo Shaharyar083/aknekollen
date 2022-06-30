@@ -60,8 +60,13 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       selectedAnswer = input;
       setInput("");
     } else if (state?.checkbox?.required) {
+      const chest = checkboxes.includes("Chest");
       selectedAnswer = checkboxes.join();
       setCheckboxes([]);
+
+      if (!chest) {
+        nextQuestionID = "16";
+      }
     } else if (state?.image?.required) {
       imageUrl = await imageUpload();
       setImage({});

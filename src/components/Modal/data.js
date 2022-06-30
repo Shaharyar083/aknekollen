@@ -25,9 +25,9 @@ export const QUESTIONS = [
     id: "4",
     question: "How would you describe the severity of your acne?",
     buttons: [
-      { answer: "Let", next: "6" },
-      { answer: "moderate", next: "12" },
-      { answer: "Difficult", next: "6" },
+      { answer: "Mild", next: "6" },
+      { answer: "Moderate", next: "12" },
+      { answer: "Severe", next: "6" },
     ],
   },
   {
@@ -49,7 +49,7 @@ export const QUESTIONS = [
     id: "7",
     question:
       "Do you take any medicines regularly? If yes, fill in the ones in the box below",
-    buttons: [{ answer: "Continued", next: "8" }],
+    buttons: [{ answer: "Continue", next: "8" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -58,7 +58,7 @@ export const QUESTIONS = [
   {
     id: "8",
     question: "Other diseases? If yes, fill in the ones in the box below",
-    buttons: [{ answer: "Continued", next: "9" }],
+    buttons: [{ answer: "Continue", next: "9" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -68,7 +68,7 @@ export const QUESTIONS = [
     id: "9",
     question:
       "Do you want to provide other medical information? If yes, fill in the box below",
-    buttons: [{ answer: "Continued", next: "10" }],
+    buttons: [{ answer: "Continue", next: "10" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -114,10 +114,10 @@ export const QUESTIONS = [
   {
     id: "14",
     question: "Mark the areas where you have acne",
-    buttons: [{ answer: "Continued", next: "15" }],
+    buttons: [{ answer: "Continue", next: "15" }],
     checkbox: {
       required: true,
-      values: ["face", "Breast", "back"],
+      values: ["Face", "Chest", "Back"],
     },
   },
   {
@@ -132,7 +132,7 @@ export const QUESTIONS = [
     id: "16",
     question:
       "Do you have acne in any area other than the previous options? If yes, enter in text",
-    buttons: [{ answer: "Continued", next: "17" }],
+    buttons: [{ answer: "Continue", next: "17" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -144,8 +144,8 @@ export const QUESTIONS = [
       "How many times have you been given antibiotics for your acne problems?",
     buttons: [
       { answer: "Never", next: "18" },
-      { answer: "Once", next: "" },
-      { answer: "Two or more times", next: "" },
+      { answer: "Once", next: "18" },
+      { answer: "Two or more times", next: "52" },
     ],
   },
   {
@@ -153,18 +153,18 @@ export const QUESTIONS = [
     question: "Choose the option that best describes your acne",
     buttons: [
       { answer: "Small blackheads without clear redness", next: "19" },
-      { answer: "Pimples (less than 0.5 cm) with redness around", next: "" },
+      { answer: "Pimples (less than 0.5 cm) with redness around", next: "19" },
       {
         answer:
           "Large pimples (over 0.5 cm) with severe tenderness and redness",
-        next: "",
+        next: "19",
       },
     ],
   },
   {
     id: "19",
     question: "How long have you had acne?",
-    buttons: [{ answer: "Continued", next: "20" }],
+    buttons: [{ answer: "Continue", next: "20" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -175,7 +175,7 @@ export const QUESTIONS = [
     question: "Have you tried any prescription creams for your acne before?",
     buttons: [
       { answer: "Yes", next: "21" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "32" },
     ],
   },
   {
@@ -189,7 +189,7 @@ export const QUESTIONS = [
     question: "Have you tried Basiron?",
     buttons: [
       { answer: "Yes", next: "23" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "24" },
     ],
   },
   {
@@ -197,7 +197,7 @@ export const QUESTIONS = [
     question: "Did Basiron have a good effect on acne and skin?",
     buttons: [
       { answer: "Yes", next: "24" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "49" },
     ],
   },
   {
@@ -205,7 +205,7 @@ export const QUESTIONS = [
     question: "Have you tried Differin?",
     buttons: [
       { answer: "Yes", next: "25" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "26" },
     ],
   },
   {
@@ -213,7 +213,7 @@ export const QUESTIONS = [
     question: "Did Differin have a good effect on acne and the skin?",
     buttons: [
       { answer: "Yes", next: "26" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "46" },
     ],
   },
   {
@@ -221,7 +221,7 @@ export const QUESTIONS = [
     question: "Have you tried Finacea or Skinoren?",
     buttons: [
       { answer: "Yes", next: "27" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "28" },
     ],
   },
   {
@@ -229,7 +229,7 @@ export const QUESTIONS = [
     question: "Did Finacea/Skinoren have a good effect on acne and the skin?",
     buttons: [
       { answer: "Yes", next: "28" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "43" },
     ],
   },
   {
@@ -237,7 +237,7 @@ export const QUESTIONS = [
     question: "Have you tried Epiduo?",
     buttons: [
       { answer: "Yes", next: "29" },
-      { answer: "No", next: "" },
+      { answer: "No", next: "30" },
     ],
   },
   {
@@ -277,7 +277,7 @@ export const QUESTIONS = [
     id: "33",
     question:
       "Are you allergic to any antibiotics or other medicines? If yes, enter the box below",
-    buttons: [{ answer: "Continued", next: "34" }],
+    buttons: [{ answer: "Continue", next: "34" }],
     input: {
       required: true,
       placeholder: "write your answer",
@@ -354,5 +354,95 @@ export const QUESTIONS = [
       { answer: "Yes", next: "30" },
       { answer: "No", next: "38" },
     ],
+  },
+  {
+    id: "43",
+    question: "Did you use Finacea / Skinoren regularly for 4-6 weeks?",
+    buttons: [
+      { answer: "Yes", next: "44" },
+      { answer: "No", next: "45" },
+    ],
+  },
+  {
+    id: "44",
+    question: "The skin became irritated or worse by Finacea / Skinoren",
+    buttons: [
+      { answer: "Yes", next: "29" },
+      { answer: "No", next: "28" },
+    ],
+  },
+  {
+    id: "45",
+    question:
+      "Did you stop because the skin became irritated or worse by Finacea / Skinoren?",
+    buttons: [
+      { answer: "Yes", next: "28" },
+      { answer: "No", next: "38" },
+    ],
+  },
+  {
+    id: "46",
+    question: "Did you use Differin regularly for 4-6 weeks?",
+    buttons: [
+      { answer: "Yes", next: "47" },
+      { answer: "No", next: "48" },
+    ],
+  },
+  {
+    id: "47",
+    question: "Was the skin irritated or worse by Differin?",
+    buttons: [
+      { answer: "Yes", next: "26" },
+      { answer: "No", next: "26" },
+    ],
+  },
+  {
+    id: "48",
+    question:
+      "Did you stop because your skin became irritated or worse by Differin?",
+    buttons: [
+      { answer: "Yes", next: "26" },
+      { answer: "No", next: "38" },
+    ],
+  },
+  {
+    id: "49",
+    question: "Did you use Basiron regularly for 4-6 weeks?",
+    buttons: [
+      { answer: "Yes", next: "50" },
+      { answer: "No", next: "51" },
+    ],
+  },
+  {
+    id: "50",
+    question: "Was the skin irritated or worse by Basiron?",
+    buttons: [
+      { answer: "Yes", next: "24" },
+      { answer: "No", next: "24" },
+    ],
+  },
+  {
+    id: "51",
+    question:
+      "Did you stop because your skin became irritated or worse by Basiron?",
+    buttons: [
+      { answer: "Yes", next: "24" },
+      { answer: "No", next: "38" },
+    ],
+  },
+  {
+    id: "52",
+    question:
+      "You can not get antibiotics for your acne more than twice and we can therefore not help you with just that. Do you still want to get a doctor's evaluation and get a prescription cream?",
+    buttons: [
+      { answer: "Yes", next: "32" },
+      { answer: "No", next: "53" },
+    ],
+  },
+  {
+    id: "53",
+    question:
+      "You have replied that you have used antibiotics two or more times and that you do not want a prescription cream. This means that unfortunately we can not help you! If you want more help, you can turn to a dermatologist.",
+    buttons: [{ answer: "okay", next: "", completed: false }],
   },
 ];
