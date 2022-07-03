@@ -1,5 +1,8 @@
 import * as React from "react";
 import "./survey.scss";
+// images
+import cancel from "../../assets/images/cancel.svg";
+
 import { setCurrentServey } from "../Redux/responseReducer";
 
 import { QUESTIONS } from "./data";
@@ -7,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 let payload = [];
 
-const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
+const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [animation, setAnimation] = React.useState(["push"]);
@@ -51,7 +54,19 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
     return res2.url;
   };
 
-  const handleSurveyData = async ({ answer, nextQuestionID, completeSurvey }) => {
+  const handleModal = () => {
+    modalClose();
+    liveStats({
+      abandonded: true,
+      abandondedQuesList: [{ question: state?.question }],
+    });
+  };
+
+  const handleSurveyData = async ({
+    answer,
+    nextQuestionID,
+    completeSurvey,
+  }) => {
     let selectedQuestion = state?.question;
     let selectedAnswer = "";
     let imageUrl = "";
@@ -84,11 +99,12 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       setSurveyCompleted(true);
       console.log("result", payload);
       dispatch(setCurrentServey(payload));
+      liveStats({ completed: true });
     }
 
     if (nextQuestionID === "" && completeSurvey === false) {
       // survey exit
-      modalClose();
+      handleModal();
       payload = [];
     }
 
@@ -100,6 +116,8 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
 
   return (
     <>
+      <img src={cancel} alt="" className="cancel" onClick={handleModal} />
+
       {animation.map(
         (_, index) =>
           animation.length - 1 === index && (
@@ -209,7 +227,7 @@ const UploadControl = ({ children, onChange, disabled }) => {
         accept="image/*"
         type="file"
         value=""
-        onChange={disabled ? () => { } : onChange}
+        onChange={disabled ? () => {} : onChange}
         disabled={disabled}
         style={{ display: "none" }}
       />
