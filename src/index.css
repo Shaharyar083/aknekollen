@@ -23,12 +23,12 @@ code {
 
 @font-face {
   font-family: sofiaPro;
-  src: url(/src/assets/fonts/sofiapro-light.otf);
+  src: url(/src/assets/fonts/Cera\ Pro\ Light.otf);
 }
 
 @font-face {
   font-family: GT;
-  src: url(/src/assets/fonts/GT\ America\ Mono\ Regular.ttf);
+  src: url(/src/assets/fonts/Cera\ Pro\ Medium.otf);
 }
 
 .button_shadow {

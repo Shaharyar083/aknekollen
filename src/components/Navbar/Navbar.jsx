@@ -22,7 +22,6 @@ function OffCanvasExample({ menu, name, ...props }) {
           height: "100%",
           background: "#ffc0c0",
           width: "100vw",
-
         }}
       >
         <Offcanvas.Body
@@ -64,7 +63,7 @@ function OffCanvasExample({ menu, name, ...props }) {
   );
 }
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [menu, setMenu] = React.useState(false);
   const [navbarScroll, setNavbarScroll] = React.useState(false);
 
@@ -94,14 +93,13 @@ const Navbar = () => {
           </div>
 
           <div className="right">
-            {navbarScroll && (
+            {(navbarScroll && props.flag) && (
               <div className="navbar-scroll">
                 <button className="button">
                   <div className="text">Get a doctor's assessment here</div>
                 </button>
               </div>
             )}
-
             <div
               // className={menu ? "close" : "hamburger"}
               className="hamburger"

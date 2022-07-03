@@ -10,6 +10,8 @@ import { getAllUsers, getCurrentUser } from "../src/components/Redux/adminReduce
 import { getAllResponses } from "../src/components/Redux/responseReducer"
 import Users from "./components/users/Users";
 import UserResponses from "./components/responses/UserResponses";
+import Privacy from "./components/Privacy/Privacy";
+import Contactus from "./components/Contactus/Contactus";
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/contactus" component={Contactus} />
+          <Route exact path="/privacypolicy" component={Privacy} />
           <Route exact path="/admin/login" component={Login} />
           <Route exact path="/admin/signup" component={Signup} />
           <Route path="/dashboard">

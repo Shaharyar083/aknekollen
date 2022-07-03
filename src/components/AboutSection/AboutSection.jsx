@@ -3,6 +3,7 @@ import "./aboutsection.scss";
 import { Container } from "react-bootstrap";
 import arrow from "../../assets/images/arrow.svg";
 import girl from "../../assets/images/girl_pic.jpg";
+import girl2 from "../../assets/images/doctor.jpeg";
 
 const part1 = {
     mainheading: "About acnecheck.ae",
@@ -43,7 +44,7 @@ const AboutReusable = (props) => {
                 {!props.data.flag && (
                     <div className="picture_main">
                         <div className="image_box">
-                            <img src={girl} alt="loading..." className="pic_main_style" />
+                            <img src={girl2} alt="loading..." className="pic_main_style" />
                         </div>
                         <div className="d-flex flex-column mt-auto mb-auto ">
                             <div className="tex_box_style">Dr Mohammed Jawad</div>
@@ -59,7 +60,7 @@ const AboutReusable = (props) => {
 const AboutSection = () => {
     return (
         <>
-            <div style={{ background: "#390020" }}>
+            <div style={{ background: "#113e21" }}>
                 <Container className="mobile_direction">
                     <AboutReusable data={part1} />
                     <AboutReusable data={part2} />

@@ -15,13 +15,14 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 1rem;
+    color: #f0f0f0;
   }
 
   .circle {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid #f0f0f0;
     margin-right: 12px;
     margin-top: 5px;
     font-size: 12px;
@@ -46,14 +47,18 @@
   .second_first_img2 {
     height: 50px;
     background: url("../../assets/images/pixelated-border.svg");
+    color: red;
     background-repeat-x: repeat;
     background-repeat-y: no-repeat;
   }
   .middle_text {
-    background: #ffc0c0;
+    background: #113e21;
     padding: 48px 24px;
     // height: 35vh;
     height: auto;
+  }
+  .txt {
+    color: #b38b59;
   }
 }
 
@@ -63,6 +68,7 @@
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.5625em;
+  color: #f0f0f0;
 }
 
 @media screen and (max-width: 995px) {

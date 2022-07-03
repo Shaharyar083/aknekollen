@@ -9,7 +9,7 @@ const OpeningHours = () => {
         }, 5000);
     }, []);
     return (
-        <div style={{ background: "#f6f2eb" }}>
+        <div style={{ background: "#b38b59" }}>
             <Container className="list_section_section">
                 <div className="first_part">
                     <div className="main_text">OPENING HOURS AND PATIENT FEES</div>
@@ -37,13 +37,13 @@ const OpeningHours = () => {
                     <div className="middle_text">
                         {/* {change ? (
                             <> */}
-                        <p>
+                        <p className="txt">
                             I love acnecheck.ae, It's always there and saves me both time
                             and money when I'm dealing with breakouts, I've been too
                             embarrassed to seek medical attention for my acne until i
                             found acnecheck.
                         </p>
-                        <div>Samar, 21 years old.</div>
+                        <div className="txt">Samar, 21 years old.</div>
                         {/* </>
                         ) : (
                             <>
