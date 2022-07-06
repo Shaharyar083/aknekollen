@@ -67,7 +67,7 @@ function UserResponses() {
     const createData = (
         index,
         _id,
-        email,
+        stateData,
         response,
         trackingClientInfo,
         edit,
@@ -76,7 +76,7 @@ function UserResponses() {
         return {
             index,
             _id,
-            email,
+            stateData,
             response,
             trackingClientInfo,
             edit,
@@ -93,7 +93,7 @@ function UserResponses() {
                     createData(
                         index + 1,
                         data._id,
-                        data.email,
+                        data.stateData,
                         data.response,
                         data.trackingClientInfo,
                         <span className="cursor" onClick={() => showEditModal(data)}>
@@ -161,10 +161,19 @@ function UserResponses() {
                                         Response ID
                                     </TableCell>
                                     <TableCell padding="normal" align="center">
-                                        Location
+                                        Emirates ID
                                     </TableCell>
                                     <TableCell padding="normal" align="center">
-                                        User Email
+                                        Full Name
+                                    </TableCell>
+                                    <TableCell padding="normal" align="center">
+                                        Email
+                                    </TableCell>
+                                    <TableCell padding="normal" align="center">
+                                        Phone No
+                                    </TableCell>
+                                    <TableCell padding="normal" align="center">
+                                        Location
                                     </TableCell>
                                     <TableCell padding="normal" align="center">
                                         No of Questions
@@ -190,9 +199,12 @@ function UserResponses() {
                                             <TableCell align="center" component="th" scope="row">
                                                 {row.index}
                                             </TableCell>
-                                            <TableCell align="center">{row._id}</TableCell>
+                                            <TableCell align="center">{row?._id}</TableCell>
+                                            <TableCell align="center">{row?.stateData?.eId}</TableCell>
+                                            <TableCell align="center">{row?.stateData?.name}</TableCell>
+                                            <TableCell align="center">{row?.stateData?.email}</TableCell>
+                                            <TableCell align="center">{row?.stateData?.phone}</TableCell>
                                             <TableCell align="center">{row.trackingClientInfo.country + "," + row.trackingClientInfo.regionName}</TableCell>
-                                            <TableCell align="center">{row.email}</TableCell>
                                             <TableCell align="center">
                                                 {row?.response?.length}
                                             </TableCell>
@@ -242,7 +254,7 @@ function UserResponses() {
                                                         <div className="">
                                                             <h5 style={{ color: "burlywood" }}>Question :{data.question}</h5>
                                                             <div className="d-flex align-items-center">
-                                                                <h5>UserResponse:</h5>
+                                                                <h5>Response:</h5>
                                                                 <span style={{ marginLeft: "10px", marginBottom: "7px" }}>
                                                                     {data.answer}
                                                                     {data.image &&

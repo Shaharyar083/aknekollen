@@ -13,24 +13,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     .left {
       padding: 16px;
-
       img {
-        width: 139.28px;
+        width: 200px;
       }
     }
-
     .right {
       display: flex;
-
       .navbar-scroll {
         display: flex;
         align-items: center;
         padding: 0 12px;
         border-left: 1px solid #000;
-
         .button {
           padding: 9px 24px 8px;
           border: 1px solid #000;
@@ -40,19 +35,16 @@
           text-transform: uppercase;
           color: #000;
         }
-
         .text {
           margin-bottom: none !important;
           font-family: GT, sans-serif;
           font-size: 0.9rem;
           font-weight: 400;
         }
-
         @media (max-width: 991px) {
           display: none;
         }
       }
-
       .hamburger {
         position: relative;
         width: 66px;
@@ -63,7 +55,6 @@
         cursor: pointer;
         overflow: hidden;
         border-left: 1px solid #000;
-
         span {
           position: absolute;
           width: 30px;
@@ -72,22 +63,18 @@
           border-radius: 2px;
           transition: 0.4s;
         }
-
         span:first-child {
           transform: translateY(-10px);
           left: 17px;
         }
-
         span:nth-child(2) {
           transform: translateY(10px);
           left: 17px;
         }
-
         span:nth-child(3) {
           left: 17px;
         }
       }
-
       .close {
         position: relative;
         width: 66px;
@@ -98,7 +85,6 @@
         cursor: pointer;
         overflow: hidden;
         border-left: 1px solid #000;
-
         span {
           position: absolute;
           height: 2px;
@@ -106,14 +92,12 @@
           border-radius: 2px;
           transition: 0.4s;
         }
-
         span:first-child {
           width: 30px;
           transform: translateY(0) rotate(45deg);
           transition-delay: 0.1s;
           left: 17px;
         }
-
         span:nth-child(2) {
           width: 30px;
           transform: translateY(0) rotate(135deg);
@@ -127,7 +111,6 @@
     }
   }
 }
-
 .heding_dstyle {
   font-size: 2.9375rem;
   font-weight: 700;

@@ -4,7 +4,7 @@ import "./heroSection.scss";
 // images & icons
 import { FiChevronDown } from "react-icons/fi";
 import hero750 from "../../../assets/images/hero750px.jpg";
-import hero2560 from "../../../assets/images/hero2560px.jpg";
+import hero2560 from "../../../assets/images/hero2.jpeg";
 import hero1900px from "../../../assets/images/hero1900px.jpg";
 import main from "../../../assets/images/main.png";
 
@@ -18,12 +18,12 @@ const HeroSection = ({ openModal }) => {
           srcset={hero750}
           className="hero-section-image-768"
         /> */}
-        {/* <source
+        <source
           media="(min-width: 769px)"
           alt=""
           srcset={hero2560}
           className="hero-section-image-min-769"
-        /> */}
+        />
         <img src={main} className="hero-section-image-desktop" alt="" />
       </picture>
 

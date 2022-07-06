@@ -42,7 +42,7 @@ const FactsSection = () => {
                             <img src={carton} className="facts_carton_img" />
                         </div> */}
                     </div>
-                    <div
+                    {/* <div
                         className="main_container2"
                         style={{
                             padding: "80px 0px 80px 80px",
@@ -66,10 +66,10 @@ const FactsSection = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="facts_image_wrapper">
+                        <div className="facts_image_wrapper">
                             
-                        </div> */}
-                    </div>
+                        </div> 
+            </div> */}
                 </Container>
             </div>
         </>

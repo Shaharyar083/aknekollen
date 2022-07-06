@@ -30,7 +30,7 @@ const Contactus = () => {
                     text: res.data.message,
                     icon: "success",
                 }).then(() => {
-                    setContactState(null)
+                    setContactState(null);
                 });
             }
         } catch (error) {
@@ -75,7 +75,7 @@ const Contactus = () => {
                             cols="50"
                             form="usrform"
                             className="contactus_txtarea"
-                            placeholder="  What would you like to ask?"
+                            placeholder="What would you like to ask?"
                             name="message"
                             value={contactState.message}
                             onChange={(e) => handleOnChange(e)}

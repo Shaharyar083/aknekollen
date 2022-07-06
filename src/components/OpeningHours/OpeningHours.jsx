@@ -32,8 +32,8 @@ const OpeningHours = () => {
                         </div>
                     </div>
                 </div>
-                <div className="second_part">
-                    <div className="second_first_img"></div>
+                <div className="second_part m-auto">
+                    {/* <div className="second_first_img"></div> */}
                     <div className="middle_text">
                         {/* {change ? (
                             <> */}
@@ -43,7 +43,7 @@ const OpeningHours = () => {
                             embarrassed to seek medical attention for my acne until i
                             found acnecheck.
                         </p>
-                        <div className="txt">Samar, 21 years old.</div>
+                        <div className="txt" style={{ fontWeight: 800 }}>Samar, 21 years old.</div>
                         {/* </>
                         ) : (
                             <>
@@ -55,7 +55,7 @@ const OpeningHours = () => {
                             </>
                         )} */}
                     </div>
-                    <div className="second_first_img2"></div>
+                    {/* <div className="second_first_img2"></div> */}
                 </div>
             </Container>
         </div>

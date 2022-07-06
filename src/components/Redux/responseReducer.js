@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import CustomerAxiosInstance from '../CustomerAxiosInstance'
+import swal from "sweetalert";
 
 const initialState = {
     responses: [],
@@ -54,6 +55,13 @@ export const addUserResponse = createAsyncThunk(
         try {
             const { data } = await CustomerAxiosInstance.post(`response/addresponse`, response)
             console.log('updated user', data)
+            if (data) {
+                swal({
+                    title: "",
+                    text: data.message,
+                    icon: "success",
+                })
+            }
             let users = [...getState().adminReducer.users]
             let index = users.findIndex((c) => c._id === response.id)
             console.log('index', index)

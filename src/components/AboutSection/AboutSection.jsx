@@ -35,12 +35,12 @@ const AboutReusable = (props) => {
                 <p className="main_para">{props.data.text1}</p>
                 <p className="main_para">{props.data.text2}</p>
                 <p className="main_para" style={{ marginTop: props.data.margin }}>{props.data.text3}</p>
-                {props.data.flag && (
+                {/* {props.data.flag && (
                     <div className="last_link">
                         READ MORE ABOUT US HERE
                         <img src={arrow} alt="loading..." className="img_style" />
                     </div>
-                )}
+                )} */}
                 {!props.data.flag && (
                     <div className="picture_main">
                         <div className="image_box">
