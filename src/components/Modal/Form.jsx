@@ -12,31 +12,34 @@ const Form = (props) => {
   const [stateData, setStateData] = useState({
     name: "",
     email: "",
-    phone: "",
+    phone: "+971",
     eId: "",
   });
   const [emailerror, setEmailError] = useState(false);
 
   const handelSubmit = async () => {
+    let correctPhone =
+      stateData?.phone?.slice(0, 4) + stateData?.phone?.slice(5, 14);
+    console.log("data==", correctPhone);
     try {
       let { data } = await axios.get("http://www.ip-api.com/json");
       console.log("datra===", data);
-      if (data) {
-        dispatch(
-          addUserResponse({
-            response: store.responseReducer.currentSurvey,
-            stateData,
-            trackingClientInfo: data,
-          })
-        );
-        setStateData({
-          name: "",
-          email: "",
-          phone: "",
-          eId: "",
-        });
-        props.modalClose();
-      }
+      // if (data) {
+      dispatch(
+        addUserResponse({
+          response: store.responseReducer.currentSurvey,
+          stateData: { ...stateData, phone: correctPhone },
+          trackingClientInfo: data || {},
+        })
+      );
+      setStateData({
+        name: "",
+        email: "",
+        phone: "",
+        eId: "",
+      });
+      props.modalClose();
+      // }
     } catch (error) {
       console.log("error===", error);
     }
@@ -57,6 +60,12 @@ const Form = (props) => {
     setStateData({
       ...stateData,
       ["eId"]: e.formattedValue,
+    });
+  };
+  const handelChangePhone = (e) => {
+    setStateData({
+      ...stateData,
+      ["phone"]: e.formattedValue,
     });
   };
   const validateEmail = (email) => {
@@ -81,6 +90,7 @@ const Form = (props) => {
               placeholder="Full Name"
               type="text"
               name="name"
+              value={stateData.name}
               onChange={(e) => handelChange(e)}
             />
             <input
@@ -88,17 +98,18 @@ const Form = (props) => {
               placeholder="Email"
               type="email"
               name="email"
+              value={stateData.email}
               onChange={(e) => handelChange(e, "email")}
             />
             {emailerror && (
               <span style={{ color: "red" }}>Please Enter a valid email</span>
             )}
-            <input
-              className="mb-0 mt-3"
+            <NumberFormat
               placeholder="Phone number"
-              type="number"
-              name="phone"
-              onChange={(e) => handelChange(e)}
+              value={stateData.phone}
+              format="+971##########"
+              onValueChange={handelChangePhone}
+              className="mt-3"
             />
             {/* <span style={{ color: "red" }}>Please Enter a valid phone</span> */}
             <NumberFormat
@@ -106,7 +117,7 @@ const Form = (props) => {
               // type="number"
               // name="eId"
               value={stateData.eId}
-              format="###-####-#######-#"
+              format="####-####-#######-#"
               onValueChange={handelChangeEid}
               className="mt-3"
             />

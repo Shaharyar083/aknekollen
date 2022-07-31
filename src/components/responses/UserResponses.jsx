@@ -196,9 +196,9 @@ function UserResponses() {
                                     <TableCell padding="normal" align="center">
                                         Phone No
                                     </TableCell>
-                                    <TableCell padding="normal" align="center">
+                                    {/* <TableCell padding="normal" align="center">
                                         Location
-                                    </TableCell>
+                                    </TableCell> */}
                                     <TableCell padding="normal" align="center">
                                         No of Questions
                                     </TableCell>
@@ -228,7 +228,7 @@ function UserResponses() {
                                             <TableCell align="center">{row?.stateData?.name}</TableCell>
                                             <TableCell align="center">{row?.stateData?.email}</TableCell>
                                             <TableCell align="center">{row?.stateData?.phone}</TableCell>
-                                            <TableCell align="center">{row.trackingClientInfo.country + "," + row.trackingClientInfo.regionName}</TableCell>
+                                            {/* <TableCell align="center">{row.trackingClientInfo.country + "," + row.trackingClientInfo.regionName}</TableCell> */}
                                             <TableCell align="center">
                                                 {row?.response?.length}
                                             </TableCell>
