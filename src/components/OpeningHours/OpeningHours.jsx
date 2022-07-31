@@ -9,7 +9,7 @@ const OpeningHours = () => {
         }, 5000);
     }, []);
     return (
-        <div style={{ background: "#b38b59" }}>
+        <div style={{ background: "#fffaf1" }}>
             <Container className="list_section_section">
                 <div className="first_part">
                     <div className="main_text">OPENING HOURS AND PATIENT FEES</div>

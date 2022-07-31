@@ -12,6 +12,7 @@ import "./sidebar.css";
 import { FaGem } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
+import logo from "../../assets/images/logo2.svg";
 import { useSelector, useDispatch } from "react-redux";
 import {
     handleToggleSidebar,
@@ -53,14 +54,13 @@ const SideBar = (props) => {
                 onToggle={() => handleDrawerOpen()}
             >
                 <SidebarHeader className="logo_style">
-                    {/* <img
-                        src={Logo}
-                        className="cursor image"
+                    <img
+                        src={logo}
+                        alt="Loading..."
+                        width="150px"
+                        className="cursor"
                         onClick={() => toggleChecked()}
-                    /> */}
-                    <h4 className="cursor image" style={{ color: "white" }} onClick={() => toggleChecked()}>
-                        Web Site Logo
-                    </h4>
+                    />
                 </SidebarHeader>
                 <Menu iconShape="round">
                     <MenuItem icon={<RiDashboardLine />}>
@@ -71,6 +71,9 @@ const SideBar = (props) => {
                             <Link to="/dashboard/users">Users</Link>
                         </MenuItem>
                     )}
+                    <MenuItem icon={<RiDashboardLine />}>
+                        <Link to="/dashboard/settings">Settings</Link>
+                    </MenuItem>
                 </Menu>
                 <SidebarFooter style={{ paddingBottom: "50%" }}>
                     <Menu>
@@ -80,7 +83,7 @@ const SideBar = (props) => {
                             }}
                             icon={<FiLogOut size={24} className="icon_dashboard_color" />}
                         >
-                            <span className="content">Log out</span>
+                            <span className="content">Log Out</span>
                         </MenuItem>
                     </Menu>
                 </SidebarFooter>

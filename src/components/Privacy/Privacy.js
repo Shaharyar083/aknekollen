@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./privacy.css";
 import Navbar from "../Navbar/Navbar";
 import FooterMain from "../FooterMain/Footer"
 const Privacy = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+
+  }, [])
   return (
     <>
       <Navbar flag={false} />
@@ -10,7 +17,7 @@ const Privacy = () => {
         <div className="privacy_main">
           <h3 className="text-center">Privacy Policy</h3>
           <div className="privacy_data">
-            <p>
+            <p style={{ background: "none", color: "#3d3934" }}>
               Acnecheck.ae protects your personal privacy and works hard to
               ensure that your personal information is protected when using our
               services. Below is our privacy policy which describes how we

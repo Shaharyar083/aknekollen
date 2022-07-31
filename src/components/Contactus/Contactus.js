@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../Contactus/contactus.css";
 import Navbar from "../Navbar/Navbar";
 import FooterMain from "../FooterMain/Footer";
@@ -11,6 +11,14 @@ const Contactus = () => {
         email: "",
         message: "",
     });
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        })
+
+    }, [])
     const handleOnChange = (e) => {
         setContactState({
             ...contactState,
@@ -18,24 +26,34 @@ const Contactus = () => {
         });
     };
     const handelSubmit = async (e) => {
-        try {
-            let res = await CustomerAxiosInstance.post(
-                "/user/addquery",
-                contactState
-            );
-            console.log("data==", res);
-            if (res) {
-                swal({
-                    title: "",
-                    text: res.data.message,
-                    icon: "success",
-                }).then(() => {
-                    setContactState(null);
-                });
+        if (contactState.email == "" || contactState.name == "" || contactState.message == "") {
+            swal({
+                title: "",
+                text: "Please Fill All Feilds",
+                icon: "warning",
+            })
+        } else {
+
+            try {
+                let res = await CustomerAxiosInstance.post(
+                    "/user/addquery",
+                    contactState
+                );
+                console.log("data==", res);
+                if (res) {
+                    swal({
+                        title: "",
+                        text: res.data.message,
+                        icon: "success",
+                    }).then(() => {
+                        setContactState(null);
+                    });
+                }
+            } catch (error) {
+                console.log("error", error);
             }
-        } catch (error) {
-            console.log("error", error);
         }
+
     };
 
     return (
@@ -82,7 +100,7 @@ const Contactus = () => {
                         ></textarea>
 
                         <button className="contactus_btn" onClick={() => handelSubmit()}>
-                            SIGNUP
+                            SUBMIT
                         </button>
                     </div>
                 </div>

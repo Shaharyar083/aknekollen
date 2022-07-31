@@ -1,5 +1,8 @@
 import * as React from "react";
 import "./survey.scss";
+// images
+import cancel from "../../assets/images/cancel.svg";
+import Spinner from "react-bootstrap/Spinner";
 import { setCurrentServey } from "../Redux/responseReducer";
 
 import { QUESTIONS } from "./data";
@@ -7,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 let payload = [];
 
-const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
+const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [animation, setAnimation] = React.useState(["push"]);
@@ -15,6 +18,7 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
   const [input, setInput] = React.useState("");
   const [checkboxes, setCheckboxes] = React.useState([]);
   const [image, setImage] = React.useState({});
+  const [loader, setLoader] = React.useState(false);
 
   const handleCheck = (value) => {
     if (checkboxes.includes(value)) {
@@ -47,11 +51,22 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       }
     );
     const res2 = await res.json();
-
     return res2.url;
   };
 
-  const handleSurveyData = async ({ answer, nextQuestionID, completeSurvey }) => {
+  const handleModal = () => {
+    modalClose();
+    liveStats({
+      abandonded: true,
+      abandondedQuesList: [{ question: state?.question }],
+    });
+  };
+
+  const handleSurveyData = async ({
+    answer,
+    nextQuestionID,
+    completeSurvey,
+  }) => {
     let selectedQuestion = state?.question;
     let selectedAnswer = "";
     let imageUrl = "";
@@ -68,7 +83,9 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
         nextQuestionID = "16";
       }
     } else if (state?.image?.required) {
+      setLoader(true);
       imageUrl = await imageUpload();
+      setLoader(false);
       setImage({});
     } else {
       selectedAnswer = answer;
@@ -84,11 +101,12 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
       setSurveyCompleted(true);
       console.log("result", payload);
       dispatch(setCurrentServey(payload));
+      liveStats({ completed: true });
     }
 
     if (nextQuestionID === "" && completeSurvey === false) {
       // survey exit
-      modalClose();
+      handleModal();
       payload = [];
     }
 
@@ -100,40 +118,50 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
 
   return (
     <>
+      <img src={cancel} alt="" className="cancel" onClick={handleModal} />
+
       {animation.map(
         (_, index) =>
           animation.length - 1 === index && (
             <div className={"survey-component fade-in-bottom"}>
               {Object.keys(image).length > 0 ? (
                 <>
-                  <img src={image?.src} alt="" className="image" />
-
-                  <div className="answer">
-                    <div
-                      className="button"
-                      onClick={() =>
-                        handleSurveyData({
-                          answer: state?.buttons[0]?.answer,
-                          nextQuestionID: state?.buttons[0]?.next,
-                          completeSurvey: state?.buttons[0]?.completed,
-                        })
-                      }
-                    >
-                      Upload a image
-                    </div>
-                  </div>
-
-                  <UploadControl onChange={handleImage}>
-                    <div className="answer">
-                      <div className="button" style={{ padding: "10px 30px" }}>
-                        Select another image
+                  {!loader ? (
+                    <>
+                      <img src={image?.src} alt="" className="image" />
+                      <div className="answer">
+                        <div
+                          className="button"
+                          onClick={() =>
+                            handleSurveyData({
+                              answer: state?.buttons[0]?.answer,
+                              nextQuestionID: state?.buttons[0]?.next,
+                              completeSurvey: state?.buttons[0]?.completed,
+                            })
+                          }
+                        >
+                          Upload a image
+                        </div>
                       </div>
-                    </div>
-                  </UploadControl>
+
+                      <UploadControl onChange={handleImage}>
+                        <div className="answer">
+                          <div
+                            className="button"
+                            style={{ padding: "10px 30px" }}
+                          >
+                            Select another image
+                          </div>
+                        </div>
+                      </UploadControl>
+                    </>
+                  ) : (
+                    <Spinner animation="border" />
+                  )}
                 </>
               ) : (
                 <>
-                  <div className="question">{state?.question}</div>
+                  {!loader && <div className="question">{state?.question}</div>}
 
                   {state?.input?.required && (
                     <input
@@ -179,16 +207,24 @@ const Survey = ({ modalClose, setSurveyCompleted, surveyResult }) => {
                     ))}
 
                   {state?.image?.required && (
-                    <UploadControl onChange={handleImage}>
-                      <div className="answer">
-                        <div
-                          className="button"
-                          style={{ padding: "15px 30px" }}
-                        >
-                          {state?.buttons[0]?.answer}
-                        </div>
-                      </div>
-                    </UploadControl>
+                    <>
+                      {loader ? (
+                        <>
+                          <Spinner animation="border" />
+                        </>
+                      ) : (
+                        <UploadControl onChange={handleImage}>
+                          <div className="answer">
+                            <div
+                              className="button"
+                              style={{ padding: "15px 30px" }}
+                            >
+                              {state?.buttons[0]?.answer}
+                            </div>
+                          </div>
+                        </UploadControl>
+                      )}
+                    </>
                   )}
                 </>
               )}

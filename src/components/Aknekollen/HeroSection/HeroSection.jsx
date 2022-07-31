@@ -7,6 +7,7 @@ import hero750 from "../../../assets/images/hero750px.jpg";
 import hero2560 from "../../../assets/images/hero2.jpeg";
 import hero1900px from "../../../assets/images/hero1900px.jpg";
 import main from "../../../assets/images/main.png";
+import { HashLink } from "react-router-hash-link";
 
 const HeroSection = ({ openModal }) => {
   return (
@@ -29,9 +30,9 @@ const HeroSection = ({ openModal }) => {
 
       <div className="hero-content fade-in-bottom">
         <h1 className="h1">
-          Troublesome acne?
-          <br />
-          We will help you within 30 minutes.
+          {/* Troublesome acne?
+          <br /> */}
+          We will help you with your acne within 3 hours.
         </h1>
 
         <button className="button1 outline-none" onClick={openModal}>
@@ -49,7 +50,9 @@ const HeroSection = ({ openModal }) => {
       </div>
 
       <div className="scroll-down">
-        <FiChevronDown size={40} />
+        <HashLink smooth to="/#1234">
+          <FiChevronDown size={40} />
+        </HashLink>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@
   justify-content: start;
   width: 50%;
   .main_h2 {
-    color: #b38b59;
+    color: #3d3934;
     font-family: SofiaPro, sans-serif;
     font-weight: 700;
     line-height: 1.2em;
@@ -13,7 +13,7 @@
     margin-bottom: 20px;
   }
   .main_para {
-    color: #b38b59;
+    color: #3d3934;
     font-family: SofiaPro, sans-serif;
     font-size: 1.0625rem;
     font-weight: 400;
@@ -22,7 +22,7 @@
     margin-bottom: 8px !important;
   }
   .last_link {
-    color: #b38b59;
+    color: #3d3934;
     font-family: GTAmericaMono, sans-serif;
     font-size: 1rem;
     font-weight: 400;
@@ -40,23 +40,23 @@
 
   .picture_main {
     display: flex;
-    border: 1px solid #b38b59;
+    // border: 1px solid #3d3934;
     margin-top: 30px;
     .image_box {
       flex: 1;
       max-width: 125px;
-      border-right: 1px solid #b38b59;
+      // border-right: 1px solid #3d3934;
       text-align: center;
       cursor: pointer;
       .pic_main_style {
         border-radius: 50%;
-        // border: 1px solid #b38b59;
+        // border: 1px solid #3d3934;
         height: 100px;
         width: 100px;
       }
     }
     .tex_box_style {
-      color: #b38b59;
+      color: #3d3934;
       font-weight: 400;
       line-height: 1.2em;
       letter-spacing: 0;

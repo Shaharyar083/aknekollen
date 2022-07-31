@@ -3,6 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { AiOutlineUser } from "react-icons/ai";
 import { notification } from "antd";
 import { MdDeleteSweep } from "react-icons/md";
+import "./userresponses.css"
 // import UpdateCategory from "../UpdateCategory";0
 
 // material ui tables
@@ -142,6 +143,29 @@ function UserResponses() {
 
     return (
         <div className="container-fluid  height-auto">
+            <div class="row5 pt-4">
+                <div class="card2 green">
+                    <h6>How many people started the questionnaire?</h6>
+                    <p>{store?.responseReducer?.analytics?.started}</p>
+                    {/* <img class="image" src="money.png" alt="" /> */}
+                </div>
+                <div class="card2 blue">
+                    <h6>How many people completed?</h6>
+                    <p>{store?.responseReducer?.analytics?.completed}</p>
+                    {/* <img class="image" src="settings.png" alt="" /> */}
+                </div>
+
+                <div class="card2 red">
+                    <h6>How many people abandonded?</h6>
+                    <p>{store?.responseReducer?.analytics?.abandonded}</p>
+                    {/* <img class="image" src="article.png" alt="" /> */}
+                </div>
+                <div class="card2 green">
+                    <h6> Site visits without starting the questionaire.</h6>
+                    <p>{store?.responseReducer?.analytics?.visitSiteWithoutStart}</p>
+                    {/* <img class="image" src="money.png" alt="" /> */}
+                </div>
+            </div>
             <div className="text-center space_top">
                 <p className="main_heding">Users Responses</p>
             </div>
@@ -282,7 +306,7 @@ function UserResponses() {
                     />
                 </Paper>
             </div>
-        </div>
+        </div >
     );
 }
 

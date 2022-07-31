@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./admin.css";
-import swal from "sweetalert";
-import { Form, Input, Button } from "antd";
-import { AiOutlineUser } from "react-icons/ai";
+import "../loginandsignup/admin.css";
+import { Form, Input } from "antd";
 import { BiLockOpenAlt, BiLockAlt } from "react-icons/bi";
-import CustomerAxiosInstance from "../CustomerAxiosInstance";
-import { useHistory } from "react-router-dom";
+import CustomerAxiosInstance from "../CustomerAxiosInstance"
+import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentUser } from "../Redux/adminReducer";
-import Cookies from "universal-cookie";
-const cookies = new Cookies();
+import swal from "sweetalert";
+
 
 const layout = {
     labelCol: {
@@ -34,13 +31,15 @@ const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
 };
 
-function Login(props) {
+function ResetPassword(props) {
     const history = useHistory();
+    const params = useParams();
     const dispatch = useDispatch();
     const store = useSelector((state) => state);
     const [values, setvalues] = useState({
-        email: "",
+        _id: params.id,
         password: "",
+        confirmpassword: "",
     });
     const handleChange = (event) => {
         setvalues({ ...values, [event.target.name]: event.target.value });
@@ -48,23 +47,32 @@ function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        CustomerAxiosInstance.post("/admin/login", values)
-            .then((res) => {
-                const token = res.data.token;
-                CustomerAxiosInstance.defaults.headers.authorization = token;
-                CustomerAxiosInstance.defaults.headers.authorization = token;
-                cookies.set("akneedmintoken", token);
-                history.push("/dashboard");
-                dispatch(setCurrentUser(token));
-            })
-            .catch((err, res) => {
-                console.log(err);
-                swal({
-                    title: "",
-                    text: err.response.data.message,
-                    icon: "error",
+        if (values.password === values.confirmpassword) {
+            CustomerAxiosInstance.post("/admin/updatepassword", values)
+                .then((res) => {
+                    history.push("/admin/login");
+                    swal({
+                        title: "",
+                        text: res.data.message,
+                        icon: "success",
+                    })
+                })
+                .catch((err, res) => {
+                    console.log(err);
+                    swal({
+                        title: "",
+                        text: err.response.data.message,
+                        icon: "success",
+                    })
                 });
-            });
+        } else {
+            swal({
+                title: "",
+                text: "Please confirm your password",
+                icon: "success",
+            })
+        }
+
     };
 
     return (
@@ -74,7 +82,7 @@ function Login(props) {
                     <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                         <div className="card-wrappers">
                             <div className="card">
-                                <span className="heading">User Login</span>
+                                <span className="heading">Reset Password</span>
                                 <Form
                                     {...layout}
                                     name="basic"
@@ -89,25 +97,7 @@ function Login(props) {
                                         rules={[
                                             {
                                                 required: true,
-                                                message: "Please input your email!",
-                                            },
-                                        ]}
-                                    >
-                                        <Input
-                                            name="email"
-                                            onChange={(event) => handleChange(event)}
-                                            value={values.email}
-                                            placeholder="Email"
-                                            suffix={<AiOutlineUser />}
-                                        />
-                                    </Form.Item>
-
-                                    <Form.Item
-                                        className="fields"
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: "Please input your password!",
+                                                message: "Please add your new password!",
                                             },
                                         ]}
                                     >
@@ -121,26 +111,35 @@ function Login(props) {
                                             }
                                         />
                                     </Form.Item>
+                                    <Form.Item
+                                        className="fields"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message: "Please add your new password!",
+                                            },
+                                        ]}
+                                    >
+                                        <Input.Password
+                                            name="confirmpassword"
+                                            value={values.confirmpassword}
+                                            onChange={(event) => handleChange(event)}
+                                            placeholder="confirmpassword"
+                                            iconRender={(visible) =>
+                                                visible ? <BiLockOpenAlt /> : <BiLockAlt />
+                                            }
+                                        />
+                                    </Form.Item>
+
                                     <Form.Item {...tailLayout}>
-                                        <div className="d-flex justify-content-evenly align-items-center">
-                                            <button
-                                                htmlType="submit"
-                                                className="store-btnss"
-                                                onClick={(event) => handleSubmit(event)}
-                                            >
-                                                Login
-                                            </button>
-                                            <span
-                                                style={{
-                                                    color: "red",
-                                                    fontSize: "12px",
-                                                    cursore: "pointer",
-                                                }}
-                                                onClick={() => history.push("/admin/forgotpassword")}
-                                            >
-                                                Forgot your password?
-                                            </span>
-                                        </div>
+                                        <button
+                                            htmlType="submit"
+                                            style={{ width: "180px" }}
+                                            className="store-btnss"
+                                            onClick={(event) => handleSubmit(event)}
+                                        >
+                                            Change Password
+                                        </button>
                                     </Form.Item>
                                 </Form>
                             </div>
@@ -152,4 +151,4 @@ function Login(props) {
     );
 }
 
-export default Login;
+export default ResetPassword;

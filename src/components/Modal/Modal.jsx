@@ -1,28 +1,35 @@
 import * as React from "react";
 import "./modal.scss";
+import CustomerAxiosInstance from "../CustomerAxiosInstance";
 
 // components
 import Form from "./Form";
 import Survey from "./Survey";
 
-// images
-import cancel from "../../assets/images/cancel.svg";
-
 const Modal = ({ close }) => {
   const [surveyCompleted, setSurveyCompleted] = React.useState(false);
+
+  React.useEffect(() => {
+    liveStats({ started: true });
+  }, []);
+
+  const liveStats = async (payload) => {
+    await CustomerAxiosInstance.post(
+      "/analytics/updateanalytics",
+      payload
+    );
+  };
 
   return (
     <div className="modal-get-doctor">
       <div className="main-wrapper">
-        <img src={cancel} alt="" className="cancel" onClick={close} />
-
         {surveyCompleted ? (
-          <Form />
+          <Form modalClose={close} />
         ) : (
           <Survey
+            liveStats={liveStats}
             modalClose={close}
             setSurveyCompleted={setSurveyCompleted}
-            surveyResult={() => { }}
           />
         )}
       </div>

@@ -30,11 +30,20 @@ const part2 = {
 const AboutReusable = (props) => {
     return (
         <>
-            <div className="main_container" style={{ padding: props.data.flag ? "80px 80px 80px 0px" : "80px 0px 80px 80px" }}>
+            <div
+                className="main_container"
+                style={{
+                    padding: props.data.flag
+                        ? "80px 80px 80px 0px"
+                        : "80px 0px 80px 80px",
+                }}
+            >
                 <h2 className="main_h2">{props.data.mainheading}</h2>
                 <p className="main_para">{props.data.text1}</p>
                 <p className="main_para">{props.data.text2}</p>
-                <p className="main_para" style={{ marginTop: props.data.margin }}>{props.data.text3}</p>
+                <p className="main_para" style={{ marginTop: props.data.margin }}>
+                    {props.data.text3}
+                </p>
                 {/* {props.data.flag && (
                     <div className="last_link">
                         READ MORE ABOUT US HERE
@@ -60,7 +69,7 @@ const AboutReusable = (props) => {
 const AboutSection = () => {
     return (
         <>
-            <div style={{ background: "#113e21" }}>
+            <div style={{ background: "#f4f0db" }}>
                 <Container className="mobile_direction">
                     <AboutReusable data={part1} />
                     <AboutReusable data={part2} />

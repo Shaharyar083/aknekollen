@@ -7,11 +7,14 @@ import { useSelector, useDispatch } from "react-redux";
 import Login from "./components/loginandsignup/Login";
 import Signup from "./components/loginandsignup/Signup";
 import { getAllUsers, getCurrentUser } from "../src/components/Redux/adminReducer"
-import { getAllResponses } from "../src/components/Redux/responseReducer"
+import { getAllResponses, getAnalyticsData } from "../src/components/Redux/responseReducer"
 import Users from "./components/users/Users";
 import UserResponses from "./components/responses/UserResponses";
 import Privacy from "./components/Privacy/Privacy";
 import Contactus from "./components/Contactus/Contactus";
+import Settings from "./components/settings/Settings";
+import ForgotPassword from "./components/settings/ForgotPassword";
+import ResetPassword from "./components/settings/ResetPassword";
 
 
 function App() {
@@ -22,6 +25,8 @@ function App() {
     dispatch(getAllUsers())
     dispatch(getAllResponses())
     dispatch(getCurrentUser())
+    dispatch(getAnalyticsData())
+    dispatch(getAnalyticsData())
   }, [])
 
   return (
@@ -32,6 +37,8 @@ function App() {
           <Route exact path="/contactus" component={Contactus} />
           <Route exact path="/privacypolicy" component={Privacy} />
           <Route exact path="/admin/login" component={Login} />
+          <Route exact path="/admin/forgotpassword" component={ForgotPassword} />
+          <Route exact path="/admin/resetpassword/:id" component={ResetPassword} />
           <Route exact path="/admin/signup" component={Signup} />
           <Route path="/dashboard">
             <SideBar />
@@ -45,6 +52,7 @@ function App() {
             >
               <Route exact path="/dashboard" component={UserResponses} />
               <Route exact path="/dashboard/users" component={Users} />
+              <Route exact path="/dashboard/settings" component={Settings} />
             </main>
           </Route>
         </Switch>

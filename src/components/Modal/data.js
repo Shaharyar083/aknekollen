@@ -309,7 +309,7 @@ export const QUESTIONS = [
   },
   {
     id: "37",
-    question: "Was the skin irritated or worsen by Duac / Acnatac?",
+    question: "Was the skin irritated or worsened  by Duac / Acnatac?",
     buttons: [
       { answer: "Yes", next: "32" },
       { answer: "No", next: "38" },
@@ -324,7 +324,7 @@ export const QUESTIONS = [
   {
     id: "39",
     question:
-      "Did you stop because your skin became irritated or worsen by Duac / Acnatac?",
+      "Did you stop because your skin became irritated or worsened  by Duac / Acnatac?",
     buttons: [
       { answer: "Yes", next: "32" },
       { answer: "No", next: "38" },
@@ -340,7 +340,7 @@ export const QUESTIONS = [
   },
   {
     id: "41",
-    question: "Was the skin irritated or worsen by Epiduo?",
+    question: "Was the skin irritated or worsened  by Epiduo?",
     buttons: [
       { answer: "Yes", next: "30" },
       { answer: "No", next: "30" },
@@ -349,7 +349,7 @@ export const QUESTIONS = [
   {
     id: "42",
     question:
-      "Did you stop because the skin became irritated or worsen by Epiduo?",
+      "Did you stop because the skin became irritated or worsened  by Epiduo?",
     buttons: [
       { answer: "Yes", next: "30" },
       { answer: "No", next: "38" },
@@ -365,7 +365,7 @@ export const QUESTIONS = [
   },
   {
     id: "44",
-    question: "The skin became irritated or worsen by Finacea / Skinoren",
+    question: "Was the skin irritated or worsened by the use of Fincea / Skinoren?",
     buttons: [
       { answer: "Yes", next: "29" },
       { answer: "No", next: "28" },
@@ -374,7 +374,7 @@ export const QUESTIONS = [
   {
     id: "45",
     question:
-      "Did you stop because the skin became irritated or worsen by Finacea / Skinoren?",
+      "Did you stop because the skin became irritated or worsened  by Finacea / Skinoren?",
     buttons: [
       { answer: "Yes", next: "28" },
       { answer: "No", next: "38" },
@@ -390,7 +390,7 @@ export const QUESTIONS = [
   },
   {
     id: "47",
-    question: "Was the skin irritated or worsen by Differin?",
+    question: "Was the skin irritated or worsened  by Differin?",
     buttons: [
       { answer: "Yes", next: "26" },
       { answer: "No", next: "26" },
@@ -399,7 +399,7 @@ export const QUESTIONS = [
   {
     id: "48",
     question:
-      "Did you stop because your skin became irritated or worsen by Differin?",
+      "Did you stop because your skin became irritated or worsened  by Differin?",
     buttons: [
       { answer: "Yes", next: "26" },
       { answer: "No", next: "38" },
@@ -415,7 +415,7 @@ export const QUESTIONS = [
   },
   {
     id: "50",
-    question: "Was the skin irritated or worsen by Basiron?",
+    question: "Was the skin irritated or worsened  by Basiron?",
     buttons: [
       { answer: "Yes", next: "24" },
       { answer: "No", next: "24" },
@@ -424,7 +424,7 @@ export const QUESTIONS = [
   {
     id: "51",
     question:
-      "Did you stop because your skin became irritated or worsen by Basiron?",
+      "Did you stop because your skin became irritated or worsened  by Basiron?",
     buttons: [
       { answer: "Yes", next: "24" },
       { answer: "No", next: "38" },

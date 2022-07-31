@@ -4,7 +4,8 @@ import swal from "sweetalert";
 
 const initialState = {
     responses: [],
-    currentSurvey: []
+    currentSurvey: [],
+    analytics: null,
 }
 // all api request here
 export const getAllResponses = createAsyncThunk('getAllResponses', async () => {
@@ -16,37 +17,15 @@ export const getAllResponses = createAsyncThunk('getAllResponses', async () => {
     }
 })
 
-// export const getCurrentUser = createAsyncThunk('getCurrentUser', async (id, { getState }) => {
-//   try {
-//     console.log("getCurrentUser1122", id)
-//     const { data } = await CustomerAxiosInstance.get(`/admin/currentuser/${id}`)
-//     console.log("getCurrentUser1122", data)
-//     let currentUser = {
-//       isSuperAdmin: data?.user?.isSuperAdmin,
-//       permissions: data?.user?.permissions,
-//     }
-//     return currentUser
-//   } catch (err) {
-//     console.log(err)
-//   }
-// })
+export const getAnalyticsData = createAsyncThunk('getAnalyticsData', async () => {
+    try {
+        const { data } = await CustomerAxiosInstance.get(`/analytics/getanalytics`)
+        return data.analytics[0]
+    } catch (err) {
+        console.log(err)
+    }
+})
 
-// export const deleteUser = createAsyncThunk(
-//   'deleteUser',
-//   async (id, { getState }) => {
-//     console.log('delete user', id)
-//     try {
-//       const response = await CustomerAxiosInstance.delete(
-//         `/admin/deleteadmin/${id}`,
-//       )
-//       let users = [...getState().adminReducer.users]
-//       users = users.filter((u) => u._id !== id)
-//       return users
-//     } catch (err) {
-//       console.log(err)
-//     }
-//   },
-// )
 
 export const addUserResponse = createAsyncThunk(
     'addUserResponse',
@@ -93,9 +72,9 @@ export const responseReducer = createSlice({
         [addUserResponse.fulfilled]: (state, action) => {
             state.responses = action.payload
         },
-        // [handelUpdateUsers.fulfilled]: (state, action) => {
-        //     state.users = action.payload
-        // }
+        [getAnalyticsData.fulfilled]: (state, action) => {
+            state.analytics = action.payload
+        }
     },
 })
 

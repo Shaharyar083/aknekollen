@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.scss";
 import { Button, Offcanvas } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import tip1 from "../../assets/images/tip1.svg";
 import tip2 from "../../assets/images/tip2.svg";
 import tip3 from "../../assets/images/tip3.svg";
@@ -64,6 +65,7 @@ function OffCanvasExample({ menu, name, ...props }) {
 }
 
 const Navbar = (props) => {
+  const history = useHistory();
   const [menu, setMenu] = React.useState(false);
   const [navbarScroll, setNavbarScroll] = React.useState(false);
 
@@ -89,26 +91,33 @@ const Navbar = (props) => {
       <div className="navbar-component">
         <div className="main-container">
           <div className="left">
-            <img src={logo3} alt="" />
+            <img
+              src={logo3}
+              alt=""
+              onClick={() => history.push("/")}
+              style={{ cursor: "pointer" }}
+            />
           </div>
 
           <div className="right">
-            {(navbarScroll && props.flag) && (
+            {navbarScroll && props.flag && (
               <div className="navbar-scroll">
                 <button className="button">
-                  <div className="text">Get a doctor's assessment here</div>
+                  <div className="text" onClick={() => props.openModal()}>
+                    Get a doctor's assessment here
+                  </div>
                 </button>
               </div>
             )}
-            <div
-              // className={menu ? "close" : "hamburger"}
+            {/* <div
+              className={menu ? "close" : "hamburger"}
               className="hamburger"
               onClick={() => setMenu(!menu)}
             >
               <span></span>
               <span></span>
               <span></span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

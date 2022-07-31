@@ -15,14 +15,15 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 1rem;
-    color: #f0f0f0;
+    color: #3d3934;
   }
 
   .circle {
-    width: 14px;
-    height: 14px;
+    width: 9px;
+    height: 9px;
+    background: #3d3934;
     border-radius: 50%;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #3d3934;
     margin-right: 12px;
     margin-top: 5px;
     font-size: 12px;
@@ -52,13 +53,14 @@
     background-repeat-y: no-repeat;
   }
   .middle_text {
-    background: #113e21;
+    background: #3d3934;
     padding: 48px 24px;
     // height: 35vh;
     height: auto;
   }
   .txt {
-    color: #b38b59;
+    color: #fffaf1;
+    font-size: 1.0625rem;
   }
 }
 
@@ -68,7 +70,7 @@
   font-size: 1.0625rem;
   font-weight: 400;
   line-height: 1.5625em;
-  color: #f0f0f0;
+  color: #3d3934;
 }
 
 @media screen and (max-width: 995px) {

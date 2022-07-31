@@ -10,7 +10,7 @@
 }
 .contactus_inputdiv {
   padding: 1rem;
-  background: #113e21;
+  background: #3d3934;
   border-radius: 0.5rem;
   border: 1px solid #222b3f;
   width: 65%;
@@ -31,7 +31,7 @@
   appearance: none;
   box-shadow: none;
   border: 1px solid #222b3f;
-  background: #b38b59;
+  background: #fffaf1;
   border-radius: 0.25rem;
   font-size: 14px;
   width: 100%;
@@ -48,7 +48,7 @@
   appearance: none;
   box-shadow: none;
   border: 1px solid #222b3f;
-  background: #b38b59;
+  background: #fffaf1;
   border-radius: 0.25rem;
   font-size: 14px;
   width: 100%;
@@ -66,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #3d3934;
   user-select: none;
   border: 1px solid #0000;
   line-height: 1.5;
@@ -78,7 +78,7 @@
   padding: 0 20px;
   min-height: 48px;
   white-space: nowrap;
-  background: #b38b59;
+  background: #fffaf1;
   font-family: "Inter Var", sans-serif !important;
   max-width: 150px;
   width: 100%;
