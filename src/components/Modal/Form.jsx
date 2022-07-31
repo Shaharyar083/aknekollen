@@ -22,14 +22,14 @@ const Form = (props) => {
       stateData?.phone?.slice(0, 4) + stateData?.phone?.slice(5, 14);
     console.log("data==", correctPhone);
     try {
-      let { data } = await axios.get("http://www.ip-api.com/json");
-      console.log("datra===", data);
+      // let { data } = await axios.get("http://www.ip-api.com/json");
+      // console.log("datra===", data);
       // if (data) {
       dispatch(
         addUserResponse({
           response: store.responseReducer.currentSurvey,
           stateData: { ...stateData, phone: correctPhone },
-          trackingClientInfo: data || {},
+          trackingClientInfo: {},
         })
       );
       setStateData({
