@@ -6,6 +6,7 @@ const initialState = {
     responses: [],
     currentSurvey: [],
     analytics: null,
+    isLoading: false,
 }
 // all api request here
 export const getAllResponses = createAsyncThunk('getAllResponses', async () => {
@@ -35,11 +36,12 @@ export const addUserResponse = createAsyncThunk(
             const { data } = await CustomerAxiosInstance.post(`response/addresponse`, response)
             console.log('updated user', data)
             if (data) {
-                swal({
-                    title: "",
-                    text: data.message,
-                    icon: "success",
-                })
+                window.location.href = data.url;
+                // swal({
+                //     title: "",
+                //     text: "You're done. We will be in touch shortly.",
+                //     icon: "success",
+                // })
             }
             let users = [...getState().adminReducer.users]
             let index = users.findIndex((c) => c._id === response.id)
@@ -71,6 +73,10 @@ export const responseReducer = createSlice({
         // },
         [addUserResponse.fulfilled]: (state, action) => {
             state.responses = action.payload
+            state.isLoading = false
+        },
+        [addUserResponse.pending]: (state, action) => {
+            state.isLoading = true
         },
         [getAnalyticsData.fulfilled]: (state, action) => {
             state.analytics = action.payload

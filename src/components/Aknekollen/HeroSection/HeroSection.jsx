@@ -32,7 +32,7 @@ const HeroSection = ({ openModal }) => {
         <h1 className="h1">
           {/* Troublesome acne?
           <br /> */}
-          We will help you with your acne within 3 hours.
+          Start your acne treatment in 15 minutes.
         </h1>
 
         <button className="button1 outline-none" onClick={openModal}>

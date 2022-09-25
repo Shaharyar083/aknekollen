@@ -66,6 +66,7 @@ const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
     answer,
     nextQuestionID,
     completeSurvey,
+
   }) => {
     let selectedQuestion = state?.question;
     let selectedAnswer = "";
@@ -95,7 +96,7 @@ const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
       ...payload,
       { question: selectedQuestion, answer: selectedAnswer, image: imageUrl },
     ];
-
+    console.log(nextQuestionID, completeSurvey);
     if (nextQuestionID === "" && completeSurvey === true) {
       // survey completed
       setSurveyCompleted(true);
@@ -114,6 +115,8 @@ const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
       setState(QUESTIONS.find((item) => item.id === nextQuestionID));
       setAnimation([...animation, "push"]);
     }
+
+
   };
 
   return (
@@ -137,23 +140,26 @@ const Survey = ({ liveStats, modalClose, setSurveyCompleted }) => {
                               answer: state?.buttons[0]?.answer,
                               nextQuestionID: state?.buttons[0]?.next,
                               completeSurvey: state?.buttons[0]?.completed,
+
                             })
                           }
                         >
-                          Upload a image
+                          Continue
                         </div>
                       </div>
 
-                      <UploadControl onChange={handleImage}>
+                      {/* <UploadControl
+                      onChange={handleImage}
+                      >
                         <div className="answer">
                           <div
                             className="button"
                             style={{ padding: "10px 30px" }}
                           >
-                            Select another image
+                            Continue
                           </div>
                         </div>
-                      </UploadControl>
+                      </UploadControl> */}
                     </>
                   ) : (
                     <Spinner animation="border" />

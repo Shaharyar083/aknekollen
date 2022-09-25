@@ -1,7 +1,7 @@
 import React from "react";
 import "../FooterMain/footer.css";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/images/logo2.svg";
+import logo from "../../assets/images/2.png";
 import { HashLink } from "react-router-hash-link";
 
 const Footer = (props) => {

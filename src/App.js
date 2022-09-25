@@ -15,6 +15,8 @@ import Contactus from "./components/Contactus/Contactus";
 import Settings from "./components/settings/Settings";
 import ForgotPassword from "./components/settings/ForgotPassword";
 import ResetPassword from "./components/settings/ResetPassword";
+import SuccessUrl from "./components/ApplePay/SuccessUrl";
+import CancelUrl from "./components/ApplePay/CancelUrl";
 
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
           <Route exact path="/admin/forgotpassword" component={ForgotPassword} />
           <Route exact path="/admin/resetpassword/:id" component={ResetPassword} />
           <Route exact path="/admin/signup" component={Signup} />
+          <Route exact path="/successurl" component={SuccessUrl} />
+          <Route exact path="/cancelurl" component={CancelUrl} />
           <Route path="/dashboard">
             <SideBar />
             <main

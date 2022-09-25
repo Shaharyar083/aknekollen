@@ -125,3 +125,24 @@ code {
   position: relative;
   z-index: 101; */
 }
+
+.swal-button {
+  background: #b38b59;
+}
+.swal-button:active {
+  background: #b38b59;
+}
+.swal-button:not([disabled]):hover {
+  background: #b38b59;
+}
+
+.sprint_style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

@@ -9,7 +9,7 @@ import tip4 from "../../assets/images/tip4.svg";
 import tip5 from "../../assets/images/tip5.svg";
 import tip6 from "../../assets/images/tip6.svg";
 // images & icons
-import logo3 from "../../assets/images/logo3.png";
+import logo5 from "../../assets/images/logo5.png";
 
 function OffCanvasExample({ menu, name, ...props }) {
   const array = [tip1, tip2, tip3, tip4, tip5, tip6];
@@ -90,9 +90,9 @@ const Navbar = (props) => {
 
       <div className="navbar-component">
         <div className="main-container">
-          <div className="left">
+          <div className="left text">
             <img
-              src={logo3}
+              src={logo5}
               alt=""
               onClick={() => history.push("/")}
               style={{ cursor: "pointer" }}

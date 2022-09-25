@@ -18,17 +18,15 @@ const OpeningHours = () => {
                             <div className="circle"></div>
                         </div>
                         <div className="text_style">
-                            PATIENT FEE. This doctors assesments is free of charge for all UAE
-                            citizens & residents to be eligible for the consultation you need
-                            to have an Emirates ID
+                            PATIENT FEE. This doctors assesments costs 39AED UAE. To be eligible for the consultation you need be a Emirates ID holder.
                         </div>
                     </div>
                     <div className="d-flex mt-4">
                         <div className="circle"></div>
                         <div className="text_style">
                             OPENING HOURS. This service is available 24/7, the doctors handles
-                            your online visits from 7 am - 8 pm. Response time within 18 hours
-                            from completion of the online consultation
+                            your online visits from 7am - 8pm. Expect a response within 18 hours.
+
                         </div>
                     </div>
                 </div>
@@ -38,12 +36,13 @@ const OpeningHours = () => {
                         {/* {change ? (
                             <> */}
                         <p className="txt">
-                            I love acnecheck.ae, It's always there and saves me both time
-                            and money when I'm dealing with breakouts, I've been too
-                            embarrassed to seek medical attention for my acne until i
-                            found acnecheck.
+                            I love acnecheck.ae, It's always there and saves me both time and
+                            money when I'm dealing with breakouts, I've been too embarrassed
+                            to seek medical attention for my acne until i found acnecheck.
                         </p>
-                        <div className="txt" style={{ fontWeight: 800 }}>Samar, 21 years old.</div>
+                        <div className="txt" style={{ fontWeight: 800 }}>
+                            Samar, 21 years old.
+                        </div>
                         {/* </>
                         ) : (
                             <>

@@ -16,9 +16,8 @@ const Contactus = () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth",
-        })
-
-    }, [])
+        });
+    }, []);
     const handleOnChange = (e) => {
         setContactState({
             ...contactState,
@@ -26,14 +25,17 @@ const Contactus = () => {
         });
     };
     const handelSubmit = async (e) => {
-        if (contactState.email == "" || contactState.name == "" || contactState.message == "") {
+        if (
+            contactState.email == "" ||
+            contactState.name == "" ||
+            contactState.message == ""
+        ) {
             swal({
                 title: "",
                 text: "Please Fill All Feilds",
                 icon: "warning",
-            })
+            });
         } else {
-
             try {
                 let res = await CustomerAxiosInstance.post(
                     "/user/addquery",
@@ -46,14 +48,17 @@ const Contactus = () => {
                         text: res.data.message,
                         icon: "success",
                     }).then(() => {
-                        setContactState(null);
+                        setContactState({
+                            name: "",
+                            email: "",
+                            message: "",
+                        });
                     });
                 }
             } catch (error) {
                 console.log("error", error);
             }
         }
-
     };
 
     return (
@@ -61,7 +66,10 @@ const Contactus = () => {
             <Navbar flag={false} />
             <br />
             <div className="contactus_page">
+                <h1 className="text-center">Contact Us</h1>
+                <p className="text-center" style={{ fontSize: "16px" }}>Use this form below to contact us, we will reply within hours.</p>
                 <div className="contactus_pagemain">
+
                     <div className="contactus_inputdiv">
                         <label for="full-name" className="contactus_label">
                             <b>Name</b>
@@ -70,7 +78,7 @@ const Contactus = () => {
                             className="contactus_input"
                             type="text"
                             name="name"
-                            value={contactState.name}
+                            value={contactState?.name}
                             onChange={(e) => handleOnChange(e)}
                             placeholder="Name"
                         />
@@ -81,7 +89,7 @@ const Contactus = () => {
                             className="contactus_input"
                             type="email"
                             name="email"
-                            value={contactState.email}
+                            value={contactState?.email}
                             onChange={(e) => handleOnChange(e)}
                             placeholder="Enter your Email"
                         />
@@ -91,11 +99,12 @@ const Contactus = () => {
                         <textarea
                             rows="5"
                             cols="50"
+                            style={{ paddingLeft: "1rem", paddingTop: "10px" }}
                             form="usrform"
                             className="contactus_txtarea"
                             placeholder="What would you like to ask?"
                             name="message"
-                            value={contactState.message}
+                            value={contactState?.message}
                             onChange={(e) => handleOnChange(e)}
                         ></textarea>
 

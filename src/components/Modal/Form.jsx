@@ -6,6 +6,13 @@ import axios from "axios";
 import swal from "sweetalert";
 import NumberFormat from "react-number-format";
 import cancel from "../../assets/images/cancel.svg";
+import PuffLoader from "react-spinners/PuffLoader";
+import { css } from "@emotion/react";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const Form = (props) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
@@ -25,6 +32,7 @@ const Form = (props) => {
       // let { data } = await axios.get("http://www.ip-api.com/json");
       // console.log("datra===", data);
       // if (data) {
+
       dispatch(
         addUserResponse({
           response: store.responseReducer.currentSurvey,
@@ -38,7 +46,7 @@ const Form = (props) => {
         phone: "",
         eId: "",
       });
-      props.modalClose();
+      // props.modalClose();
       // }
     } catch (error) {
       console.log("error===", error);
@@ -146,6 +154,19 @@ const Form = (props) => {
             </button>
           </div>
         </div>
+        {console.log("ghjfhgjfjghjfhjhjhjhjhj", store.responseReducer.isLoading)}
+        {
+          store.responseReducer.isLoading && (
+            <div className="sprint_style">
+              <PuffLoader
+                color={"#b38b59"}
+                loading={true}
+                css={override}
+                size={130}
+              />
+            </div>
+          )
+        }
       </div>
     </>
   );

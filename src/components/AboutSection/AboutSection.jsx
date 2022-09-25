@@ -18,11 +18,11 @@ const part1 = {
 const part2 = {
     mainheading: "This is what the doctor says",
     text1:
-        "During adolescence, the sebaceous glands produce more sebum while producing more of a particular bacteria that helps to cause acne. This makes the sebaceous glands more prone to inflammation, which results in acne outbreaks.",
+        "During adolescence, the sebaceous glands produce more sebum together with a specific bacterium that can cause inflammation of said gland which results in acne outbreaks.",
     text2:
-        "The reason why you develop acne more frequently on the face, chest, and back is simple: those areas contain more sebaceous glands. As I previously stated, acne is frequent during adolescence, but this does not imply that the person has to suffer from acne for a long period of time.",
+        "The reason why you develop acne more frequently on the face, chest, and back is simple: those areas contain more sebaceous glands. As I previously stated, acne is frequent during adolescence, but that does not mean you have to suffer from acne for a long period of time.",
     text3:
-        "Despite the fact that there is excellent treatment available today, acne is a skin condition that gets very little attention from doctors.",
+        "Even though there is excellent treatment available, acne is a skin condition that gets very little attention from doctors.",
     flag: false,
     margin: "30px",
 };
