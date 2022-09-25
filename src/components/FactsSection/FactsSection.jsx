@@ -87,7 +87,7 @@ const FactsSection = () => {
                     >
                         <div
                             className="facts_bg_stiker_wrap_facts"
-                            style={{ marginTop: "20px" }}
+                            style={{ marginTop: "75px" }}
                         >
                             {flag === 0 && (
                                 <img
